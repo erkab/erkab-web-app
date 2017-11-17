@@ -6,7 +6,6 @@ var favicon = require('serve-favicon');
 var passport = require('passport');
 var flash    = require('connect-flash');
 
-
 var logger = require('morgan');
 
 var session      = require('express-session');

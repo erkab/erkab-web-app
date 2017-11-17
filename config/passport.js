@@ -3,9 +3,11 @@ var User = require('../app_server/model/user');
 
 module.exports = {
     setupPassport: function (passport) {
+
         passport.serializeUser(function (user, done) {
             done(null, user.id);
         });
+
         passport.deserializeUser(function (id, done) {
             User.findById(id, function (err, user) {
                 done(err, user);
@@ -27,9 +29,14 @@ module.exports = {
                         var newUser = new User();
                         newUser.email = email;
                         newUser.password = newUser.generateHash(password);
+                        newUser.firstName = req.body.firstName;
+                        newUser.lastName = req.body.lastName;
+                        newUser.collegeId = req.body.mobileNum;
+                        newUser.gender = req.body.gender;
                         newUser.save(function (err) {
-                            if (err)
+                            if (err) {
                                 throw err;
+                            }
                             return done(null, newUser);
                         });
                     }

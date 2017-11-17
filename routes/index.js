@@ -4,22 +4,26 @@ var logout = require('./logout');
 var signup = require('./sign_up');
 var profile = require('./profile');
 
+
+//.com/
+//.com/login
+//.com/login/profile
+
 module.exports = function (app, passport) {
     app.use('/login', login);
     app.use('/logout', logout);
     app.use('/signup', signup);
     app.use('/profile', profile);
+
     app.get('/', function(req, res) {
         res.render('index.ejs'); // load the index.ejs file
     });
     // catch 404 and forward to error handler
-
     app.use(function(req, res, next) {
         var err = new Error('Not Found');
         err.status = 404;
         next(err);
     });
-
     //error handler
     app.use(function(err, req, res, next) {
         // set locals, only providing error in development
