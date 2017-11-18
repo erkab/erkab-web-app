@@ -2,7 +2,6 @@ var router = require('express').Router();
 var passport = require('passport');
 
 router.get('/', function(req, res) {
-
     res.render('signup.ejs', { message: req.flash('signupMessage') });
 });
 // process the signup form

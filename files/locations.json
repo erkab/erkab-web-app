@@ -1,0 +1,31 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Syria street"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.946654438972473,
+          31.23310536943998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Avon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.958633184432983,
+          31.240471683870496
+        ]
+      }
+    }
+  ]
+}
