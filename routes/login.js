@@ -9,7 +9,7 @@ router.get('/', function(req, res) {
 
 // process the login form
 router.post('/', passport.authenticate('local-login', {
-    successRedirect : '/profile', // redirect to the secure profile section
+    successRedirect : '/dashboard', // redirect to the secure profile section
     failureRedirect : '/login', // redirect back to the signup page if there is an error
     failureFlash : true // allow flash messages
 }));

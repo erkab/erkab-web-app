@@ -2,13 +2,13 @@ var express = require('express');
 var login = require('./login');
 var logout = require('./logout');
 var signup = require('./sign_up');
-var profile = require('./profile');
+var dashboard = require('./dashboard');
 
 module.exports = function (app, passport) {
     app.use('/login', login);
     app.use('/logout', logout);
     app.use('/signup', signup);
-    app.use('/profile', profile);
+    app.use('/dashboard', dashboard);
     app.get('/', function(req, res) {
         res.render('index.ejs'); // load the index.ejs file
     });
