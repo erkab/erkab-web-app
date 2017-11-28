@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!--[if lt IE 9 ]>
+<html class="no-js oldie" lang="en"> <![endif]-->
+<!--[if IE 9 ]>
+<html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+
+    <!--- basic page needs
+   ================================================== -->
+    <meta charset="utf-8">
+    <title>Find a Ride - Erkab</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+   ================================================== -->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+
+    <!-- CSS
+   ================================================== -->
+    <link rel="stylesheet" href="/public/css/base.css">
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
+    <link rel="stylesheet" href="/public/css/main.css">
+    <link rel="stylesheet" href="/public/css/erkab.css">
+    <link rel="stylesheet" href="/public/css/bootstrap-select.css">
+    <link rel="stylesheet" href="/public/css/default.css">
+    <link rel="stylesheet" href="/public/css/default.date.css">
+    <link rel="stylesheet" href="/public/css/default.time.css">
+    <link rel="stylesheet" href="/public/css/bootstrap-toggle.min.css">
+    <!-- script
+   ================================================== -->
+    <script src="/public/js/modernizr.js"></script>
+
+    <!-- favicons
+	================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+<body id="top">
+
+<!-- header
+================================================== -->
+<% include templates/header.ejs %>
+
+<div id="changeableView" class="request-container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 left-div">
+            <form action="/request" method="post">
+                <div id="center-block">
+                    <div class="sticky-div">
+                        <h4 class="text-black">SET RIDE PREFERENCES</h4>
+                        <hr>
+                    </div>
+                    <input name="userType" type="checkbox" checked data-toggle="toggle" data-on="RIDER" value="Rider"
+                           data-off="DRIVER"
+                           data-onstyle="success" data-offstyle="danger">
+                    <br>
+                    <label>AREA</label><br>
+                    <select  id="areaPicker" name="area" class="selectpicker" data-live-search="true">
+                        <option selected disabled>Select area</option>
+                        <option>Roushdy</option>
+                        <option>Ibrahimeya</option>
+                        <option>Raml Station</option>
+                    </select>
+                    <button id="locBtn" name="myLocation" type="button" class="btn btn-edited inline-block"><i
+                                class="fa fa-map-marker"></i>
+                    </button>
+                    <br>
+                    <label>PICKUP POINTS</label><br>
+                    <select id="pointPicker" name="points" class="selectpicker" multiple data-selected-text-format="count"
+                            title="Select pickup point">
+                        <option>Pizza Hut (Corniche)</option>
+                        <option>Deeb Mall (Syria St.)</option>
+                        <option>McDonald's Stanley</option>
+                    </select>
+                    <br>
+                    <div id="center-block">
+                        <label>DATE</label><br>
+                        <input name="date" type="text" id="input_date" placeholder="Set pickup date">
+                        <label>TIME</label><br>
+                        <input name="time" type="text" id="input_time" placeholder="Set pickup time">
+                        <br>
+                        <label>DRIVER PREFERENCE</label><br>
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-edited active">
+                                <input type="radio" name="driverPref" value="No Pref." autocomplete="off" checked><i
+                                        class="fa fa-times"></i></label>
+                            <label class="btn btn-edited">
+                                <input type="radio" name="driverPref" value="Male" autocomplete="off"><i
+                                        class="fa fa-male"></i></label>
+                            <label class="btn btn-edited">
+                                <input type="radio" name="driverPref" value="Female" autocomplete="off"><i
+                                        class="fa fa-female"></i></label>
+                        </div>
+                        <br><br>
+                        <button name="erkabBtn" id="erkabBtn" type="submit" class="btn btn-edited"><i
+                                    class="fa fa-car"></i> ERKAB
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-8 right-div">
+            <div id="map" class="map-request"></div>
+        </div>
+    </div>
+</div>
+
+<div id="preloader">
+    <div id="loader">
+        <label id="loadingLbl"><i class="fa fa-car"></i></label>
+    </div>
+</div>
+
+<!-- Java Script
+================================================== -->
+<script src="/public/js/jquery-2.1.3.min.js"></script>
+<script src="/public/js/main.js"></script>
+<script src="/public/js/jquery.js"></script>
+<script src="/public/js/bootstrap.js"></script>
+<script src="/public/js/bootstrap-select.js"></script>
+<script src="/public/js/getLocation.js"></script>
+<script src="/public/js/picker.js"></script>
+<script src="/public/js/picker.date.js"></script>
+<script src="/public/js/picker.time.js"></script>
+<script src="/public/js/bootstrap-toggle.min.js"></script>
+<script>
+    var $inputDate = $('#input_date').pickadate(),
+        picker = $inputDate.pickadate('picker');
+</script>
+<script>
+    var $inputTime = $('#input_time').pickatime(),
+        picker = $inputTime.pickatime('picker');
+</script>
+<script>
+    $(function () {
+        $('#areaPicker').selectpicker();
+        $('#pointPicker').selectpicker();
+
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+            $('#areaPicker').selectpicker('mobile');
+            $('#pointPicker').selectpicker('mobile');
+        }
+    });
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACM-rbXIzhMtNX4ax1u7d-m70pQNDgVa4&callback=initMap">
+</script>
+</body>
+</html>
