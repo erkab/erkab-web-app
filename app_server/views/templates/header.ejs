@@ -1,0 +1,24 @@
+<header id="header" class="row">
+
+    <div class="header-logo">
+        <a href="/dashboard">Erkab</a>
+    </div>
+
+    <nav id="header-nav-wrap">
+        <ul class="header-main-nav">
+            <li class="current"><a href="/dashboard" title="Dashboard"><i
+                            class="fa fa-fw fa-tachometer"></i>&nbsp;Dashboard</a></li>
+            <li><a href="/alerts" title="Notifications"><i
+                            class="fa fa-fw fa-bell"></i>&nbsp;Alerts</a></li>
+            <li><a href="/trips" title="Trips"><i
+                            class="fa fa-fw fa-suitcase"></i>&nbsp;Trips</a></li>
+            <li><a href="/profile" title="Profile"><i class="fa fa-fw fa-user-circle-o"></i>&nbsp;<%= user.email %>
+                </a></li>
+        </ul>
+        <a href="/logout" title="sign-up" class="button button-primary cta"><i
+                    class="fa fa-user fa-sign-out"></i>&nbsp;Logout</a>
+    </nav>
+
+    <a class="header-menu-toggle" style="color: #00fbff" href="#"><span>Menu</span></a>
+
+</header> <!-- /header -->

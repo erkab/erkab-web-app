@@ -1,16 +1,22 @@
-var express = require('express');
 var login = require('./login');
 var logout = require('./logout');
 var signup = require('./sign_up');
 var dashboard = require('./dashboard');
+var request = require('./request');
+var trips = require('./trips');
+var profile = require('./profile');
 
 module.exports = function (app, passport) {
     app.use('/login', login);
     app.use('/logout', logout);
     app.use('/signup', signup);
     app.use('/dashboard', dashboard);
+    app.use('/request', request);
+    app.use('/trips', trips);
+    app.use('/profile', profile);
     app.get('/', function(req, res) {
-        res.render('index.ejs'); // load the index.ejs file
+
+        res.render('index'); // load the index.ejs file
     });
     // catch 404 and forward to error handler
 
