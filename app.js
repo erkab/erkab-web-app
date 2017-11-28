@@ -15,11 +15,12 @@ var bodyParser = require('body-parser');
 var configDB = require('./config/db');
 var app = express();
 
+
+app.use(express.static(path.join(__dirname, 'public')));
 // view engine setup
 app.set('views', __dirname + '/app_server/views');
+app.set('view engine', 'ejs'); // set up ejs for templating/
 
-app.set('view engine', 'ejs'); // set up ejs for templating
-//app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
