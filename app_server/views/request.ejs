@@ -38,33 +38,6 @@
 
 
     <script src="/public/js/modernizr.js"></script>
-    <script src="/public/js/jquery-2.1.3.min.js"></script>
-
-    <script>
-        var pickedArea = function () {
-            $("#pointPicker").html('');
-            $('#pointPicker').selectpicker('refresh');
-            var area = $('#areaPicker').val();
-            window.locationsData[area].features.forEach(function (location, index) {
-                console.log("Index " + index + "\n");
-                $('#pointPicker').append('<option value =' + index + '>' + location.properties.name + '</option>');
-            });
-            $('#pointPicker').selectpicker('refresh');
-
-        }
-    </script>
-
-    <script>
-        $(document).ready(function () {
-            $.getJSON("public/ajax/locations.json", function (data) {
-                window.locationsData = data;
-                $.each(data.areas, function (index, value) {
-                    $('#areaPicker').append('<option value =' + value + '>' + value + '</option>');
-                    $('#areaPicker').selectpicker('refresh');
-                })
-            });
-        });
-    </script>
 
 
     <!-- favicons
@@ -108,7 +81,7 @@
                     <br>
 
                     <label>PICKUP POINTS</label><br>
-                    <select id="pointPicker" name="points" class="selectpicker" multiple
+                    <select id="pointPicker" name="points" onchange="pickedPoint();" class="selectpicker" multiple
                             data-selected-text-format="count"
                             title="Select pickup point">
                     </select>
@@ -159,7 +132,7 @@
 <script src="/public/js/jquery.js"></script>
 <script src="/public/js/bootstrap.js"></script>
 <script src="/public/js/bootstrap-select.js"></script>
-<script src="/public/js/getLocation.js"></script>
+<script src="/public/js/mapUtils.js"></script>
 <script src="/public/js/picker.js"></script>
 <script src="/public/js/picker.date.js"></script>
 <script src="/public/js/picker.time.js"></script>
@@ -184,12 +157,44 @@
     });
 </script>
 
+<script>
+    $(document).ready(function () {
+        $.getJSON("public/ajax/locations.json", function (data) {
+            window.locationsData = data;
+            $.each(data.areas, function (index, value) {
+                $('#areaPicker').append('<option value =' + value + '>' + value + '</option>');
+                $('#areaPicker').selectpicker('refresh');
+            })
+        });
+    });
+</script>
+
+<script>
+    function pickedArea () {
+        $('#pointPicker').html('');
+        $('#pointPicker').selectpicker('refresh');
+        clearMarkers();
+        var area = $('#areaPicker').val();
+        window.locationsData[area].features.forEach(function (location, index) {
+            $('#pointPicker').append('<option value =' + index + '>' + location.properties.name + '</option>');
+            console.log(location.geometry.coordinates);
+            addMarker(location.geometry.coordinates);
+        });
+        $('#pointPicker').selectpicker('refresh');
+    }
+    function pickedPoint () {
+        var sel = $('#pointPicker');
+        //setMarker(sel.data('prev'), null);
+        var index = sel.val()[sel.val().length - 1];
+        setMarker(index, map);
+        //sel.data('prev', index);
+    }
+</script>
 
 
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACM-rbXIzhMtNX4ax1u7d-m70pQNDgVa4&callback=initMap">
+</script>
 
-
-<!--<script async defer-->
-<!--src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACM-rbXIzhMtNX4ax1u7d-m70pQNDgVa4&callback=initMap">-->
-<!--</script>-->
 </body>
 </html>

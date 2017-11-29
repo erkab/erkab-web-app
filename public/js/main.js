@@ -70,32 +70,31 @@
 
     /* Highlight the current section in the navigation bar
       * ------------------------------------------------------ */
-    var ssWaypoints = function () {
-
-        var sections = $("section"),
-            navigation_links = $(".header-main-nav li a");
-
-        sections.waypoint({
-
-            handler: function (direction) {
-
-                var active_section;
-
-                active_section = $('section#' + this.element.id);
-
-                if (direction === "up") active_section = active_section.prev();
-
-                var active_link = $('.header-main-nav li a[href="#' + active_section.attr("id") + '"]');
-
-                navigation_links.parent().removeClass("current");
-                active_link.parent().addClass("current");
-
-            },
-
-            offset: '25%'
-
-        });
-    };
+    //  var ssWaypoints = function () {
+    //      var sections = $("section"),
+    //         navigation_links = $(".header-main-nav li a");
+    //
+    //     sections.waypoint({
+    //
+    //         handler: function (direction) {
+    //
+    //             var active_section;
+    //
+    //             active_section = $('section#' + this.element.id);
+    //
+    //             if (direction === "up") active_section = active_section.prev();
+    //
+    //             var active_link = $('.header-main-nav li a[href="#' + active_section.attr("id") + '"]');
+    //
+    //             navigation_links.parent().removeClass("current");
+    //             active_link.parent().addClass("current");
+    //
+    //         },
+    //
+    //         offset: '25%'
+    //
+    //     });
+    // };
 
 
     /* Smooth Scrolling
@@ -214,13 +213,13 @@
 
         ssPreloader();
         ssMobileMenu();
-        ssWaypoints();
-        ssSmoothScroll();
-        ssPlaceholder();
-        ssAlertBoxes();
-        ssAOS();
-        ssAjaxChimp();
-        ssBackToTop();
+       // ssWaypoints();
+       //  ssSmoothScroll();
+       //  ssPlaceholder();
+       //  ssAlertBoxes();
+       //  ssAOS();
+       //  ssAjaxChimp();
+       //  ssBackToTop();
 
     })();
 

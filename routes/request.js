@@ -15,7 +15,7 @@ router.post('/', checkLoggedIn, function (req, res) {
         date : req.body.date,
         time : req.body.time,
         driverPref : req.body.driverPref
-    }
+    };
     res.redirect('/trips');
 });
 
@@ -26,5 +26,4 @@ function checkLoggedIn(req, res, next) {
     //Redirect to home if not logged in
     res.redirect('/');
 }
-
 module.exports = router;
