@@ -35,7 +35,37 @@
     <link rel="stylesheet" href="/public/css/bootstrap-toggle.min.css">
     <!-- script
    ================================================== -->
+
+
     <script src="/public/js/modernizr.js"></script>
+    <script src="/public/js/jquery-2.1.3.min.js"></script>
+
+    <script>
+        var pickedArea = function () {
+            $("#pointPicker").html('');
+            $('#pointPicker').selectpicker('refresh');
+            var area = $('#areaPicker').val();
+            window.locationsData[area].features.forEach(function (location, index) {
+                console.log("Index " + index + "\n");
+                $('#pointPicker').append('<option value =' + index + '>' + location.properties.name + '</option>');
+            });
+            $('#pointPicker').selectpicker('refresh');
+
+        }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON("public/ajax/locations.json", function (data) {
+                window.locationsData = data;
+                $.each(data.areas, function (index, value) {
+                    $('#areaPicker').append('<option value =' + value + '>' + value + '</option>');
+                    $('#areaPicker').selectpicker('refresh');
+                })
+            });
+        });
+    </script>
+
 
     <!-- favicons
 	================================================== -->
@@ -64,23 +94,25 @@
                            data-onstyle="success" data-offstyle="danger">
                     <br>
                     <label>AREA</label><br>
-                    <select  id="areaPicker" name="area" class="selectpicker" data-live-search="true">
+
+                    <select id="areaPicker" name="area" onchange="pickedArea();" class="selectpicker" data-live-search="true">
                         <option selected disabled>Select area</option>
-                        <option>Roushdy</option>
-                        <option>Ibrahimeya</option>
-                        <option>Raml Station</option>
+                        <!--<option>Roushdy</option>-->
+                        <!--<option>Ibrahimeya</option>-->
+                        <!--<option>Raml Station</option>-->
                     </select>
+
                     <button id="locBtn" name="myLocation" type="button" class="btn btn-edited inline-block"><i
                                 class="fa fa-map-marker"></i>
                     </button>
                     <br>
+
                     <label>PICKUP POINTS</label><br>
-                    <select id="pointPicker" name="points" class="selectpicker" multiple data-selected-text-format="count"
+                    <select id="pointPicker" name="points" class="selectpicker" multiple
+                            data-selected-text-format="count"
                             title="Select pickup point">
-                        <option>Pizza Hut (Corniche)</option>
-                        <option>Deeb Mall (Syria St.)</option>
-                        <option>McDonald's Stanley</option>
                     </select>
+
                     <br>
                     <div id="center-block">
                         <label>DATE</label><br>
@@ -145,14 +177,19 @@
         $('#areaPicker').selectpicker();
         $('#pointPicker').selectpicker();
 
-        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
             $('#areaPicker').selectpicker('mobile');
             $('#pointPicker').selectpicker('mobile');
         }
     });
 </script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACM-rbXIzhMtNX4ax1u7d-m70pQNDgVa4&callback=initMap">
-</script>
+
+
+
+
+
+<!--<script async defer-->
+<!--src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACM-rbXIzhMtNX4ax1u7d-m70pQNDgVa4&callback=initMap">-->
+<!--</script>-->
 </body>
 </html>
