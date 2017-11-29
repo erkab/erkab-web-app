@@ -61,7 +61,7 @@
                     </div>
                     <input name="userType" type="checkbox" checked data-toggle="toggle" data-on="RIDER" value="Rider"
                            data-off="DRIVER"
-                           data-onstyle="success" data-offstyle="danger">
+                           data-onstyle="success" data-offstyle="danger" data-width="220">
                     <br>
                     <label>AREA</label><br>
                     <select  id="areaPicker" name="area" class="selectpicker" data-live-search="true">
@@ -87,16 +87,16 @@
                         <input name="date" type="text" id="input_date" placeholder="Set pickup date">
                         <label>TIME</label><br>
                         <input name="time" type="text" id="input_time" placeholder="Set pickup time">
-                        <br>
+
                         <label>DRIVER PREFERENCE</label><br>
                         <div class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-edited active">
+                            <label class="btn btn-edited active" style="width: 73.3333px">
                                 <input type="radio" name="driverPref" value="No Pref." autocomplete="off" checked><i
                                         class="fa fa-times"></i></label>
-                            <label class="btn btn-edited">
+                            <label class="btn btn-edited" style="width: 73.3333px">
                                 <input type="radio" name="driverPref" value="Male" autocomplete="off"><i
                                         class="fa fa-male"></i></label>
-                            <label class="btn btn-edited">
+                            <label class="btn btn-edited" style="width: 73.3333px">
                                 <input type="radio" name="driverPref" value="Female" autocomplete="off"><i
                                         class="fa fa-female"></i></label>
                         </div>
@@ -124,7 +124,6 @@
 ================================================== -->
 <script src="/public/js/jquery-2.1.3.min.js"></script>
 <script src="/public/js/main.js"></script>
-<script src="/public/js/jquery.js"></script>
 <script src="/public/js/bootstrap.js"></script>
 <script src="/public/js/bootstrap-select.js"></script>
 <script src="/public/js/getLocation.js"></script>
@@ -149,6 +148,17 @@
             $('#areaPicker').selectpicker('mobile');
             $('#pointPicker').selectpicker('mobile');
         }
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $.getJSON("public/ajax/locations.json", function (data) {
+            $.each(data.areas, function (index, value) {
+                console.log(data);
+                $('#areaPicker').append('<option>' + index + '</option>');
+                $('#areaPicker').selectpicker('refresh');
+            })
+        });
     });
 </script>
 <script async defer

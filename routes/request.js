@@ -1,4 +1,5 @@
 var router = require('express').Router();
+var User = require('../app_server/model/user');
 
 router.get('/', checkLoggedIn, function (req, res) {
     res.render('request', {

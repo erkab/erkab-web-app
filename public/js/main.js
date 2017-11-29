@@ -30,7 +30,7 @@
             $('html, body').animate({scrollTop: 0}, 'normal');
 
             // will fade out the whole preloader DIV that covers the website.
-            $("#preloader").delay(180).fadeOut('slow');
+            $("#preloader").delay(50).fadeOut('slow');
 
         });
     };
@@ -214,13 +214,13 @@
 
         ssPreloader();
         ssMobileMenu();
-        ssWaypoints();
-        ssSmoothScroll();
-        ssPlaceholder();
-        ssAlertBoxes();
-        ssAOS();
-        ssAjaxChimp();
-        ssBackToTop();
+        // ssWaypoints();
+        // ssSmoothScroll();
+        // ssPlaceholder();
+        // ssAlertBoxes();
+        // ssAOS();
+        // ssAjaxChimp();
+        // ssBackToTop();
 
     })();
 
