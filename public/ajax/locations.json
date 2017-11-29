@@ -1,3 +1,30 @@
 {
-  "areas": ["Roushdy","Gleem", "Ibrahimya", "Raml Station"]
+  "areas": ["Roushdy", "Ibrahimya", "Raml Station"],
+  "Roushdy": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {"name": "Pizza Hut"},
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            29.946659803390503,
+            31.233109956364924
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {"name": "Fakahany el Nasr"},
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            29.951080083847046,
+            31.227307318300834
+          ]
+        }
+      }
+    ]
+  }
 }

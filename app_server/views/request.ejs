@@ -35,7 +35,10 @@
     <link rel="stylesheet" href="/public/css/bootstrap-toggle.min.css">
     <!-- script
    ================================================== -->
+
+
     <script src="/public/js/modernizr.js"></script>
+
 
     <!-- favicons
 	================================================== -->
@@ -61,42 +64,44 @@
                     </div>
                     <input name="userType" type="checkbox" checked data-toggle="toggle" data-on="RIDER" value="Rider"
                            data-off="DRIVER"
-                           data-onstyle="success" data-offstyle="danger" data-width="220">
+                           data-onstyle="success" data-offstyle="danger">
                     <br>
                     <label>AREA</label><br>
-                    <select  id="areaPicker" name="area" class="selectpicker" data-live-search="true">
+
+                    <select id="areaPicker" name="area" onchange="pickedArea();" class="selectpicker" data-live-search="true">
                         <option selected disabled>Select area</option>
-                        <option>Roushdy</option>
-                        <option>Ibrahimeya</option>
-                        <option>Raml Station</option>
+                        <!--<option>Roushdy</option>-->
+                        <!--<option>Ibrahimeya</option>-->
+                        <!--<option>Raml Station</option>-->
                     </select>
+
                     <button id="locBtn" name="myLocation" type="button" class="btn btn-edited inline-block"><i
                                 class="fa fa-map-marker"></i>
                     </button>
                     <br>
+
                     <label>PICKUP POINTS</label><br>
-                    <select id="pointPicker" name="points" class="selectpicker" multiple data-selected-text-format="count"
+                    <select id="pointPicker" name="points" onchange="pickedPoint();" class="selectpicker" multiple
+                            data-selected-text-format="count"
                             title="Select pickup point">
-                        <option>Pizza Hut (Corniche)</option>
-                        <option>Deeb Mall (Syria St.)</option>
-                        <option>McDonald's Stanley</option>
                     </select>
+
                     <br>
                     <div id="center-block">
                         <label>DATE</label><br>
                         <input name="date" type="text" id="input_date" placeholder="Set pickup date">
                         <label>TIME</label><br>
                         <input name="time" type="text" id="input_time" placeholder="Set pickup time">
-
+                        <br>
                         <label>DRIVER PREFERENCE</label><br>
                         <div class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-edited active" style="width: 73.3333px">
+                            <label class="btn btn-edited active">
                                 <input type="radio" name="driverPref" value="No Pref." autocomplete="off" checked><i
                                         class="fa fa-times"></i></label>
-                            <label class="btn btn-edited" style="width: 73.3333px">
+                            <label class="btn btn-edited">
                                 <input type="radio" name="driverPref" value="Male" autocomplete="off"><i
                                         class="fa fa-male"></i></label>
-                            <label class="btn btn-edited" style="width: 73.3333px">
+                            <label class="btn btn-edited">
                                 <input type="radio" name="driverPref" value="Female" autocomplete="off"><i
                                         class="fa fa-female"></i></label>
                         </div>
@@ -124,9 +129,10 @@
 ================================================== -->
 <script src="/public/js/jquery-2.1.3.min.js"></script>
 <script src="/public/js/main.js"></script>
+<script src="/public/js/jquery.js"></script>
 <script src="/public/js/bootstrap.js"></script>
 <script src="/public/js/bootstrap-select.js"></script>
-<script src="/public/js/getLocation.js"></script>
+<script src="/public/js/mapUtils.js"></script>
 <script src="/public/js/picker.js"></script>
 <script src="/public/js/picker.date.js"></script>
 <script src="/public/js/picker.time.js"></script>
@@ -144,25 +150,51 @@
         $('#areaPicker').selectpicker();
         $('#pointPicker').selectpicker();
 
-        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
             $('#areaPicker').selectpicker('mobile');
             $('#pointPicker').selectpicker('mobile');
         }
     });
 </script>
+
 <script>
     $(document).ready(function () {
         $.getJSON("public/ajax/locations.json", function (data) {
+            window.locationsData = data;
             $.each(data.areas, function (index, value) {
-                console.log(data);
-                $('#areaPicker').append('<option>' + index + '</option>');
+                $('#areaPicker').append('<option value =' + value + '>' + value + '</option>');
                 $('#areaPicker').selectpicker('refresh');
             })
         });
     });
 </script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACM-rbXIzhMtNX4ax1u7d-m70pQNDgVa4&callback=initMap">
+
+<script>
+    function pickedArea () {
+        $('#pointPicker').html('');
+        $('#pointPicker').selectpicker('refresh');
+        clearMarkers();
+        var area = $('#areaPicker').val();
+        window.locationsData[area].features.forEach(function (location, index) {
+            $('#pointPicker').append('<option value =' + index + '>' + location.properties.name + '</option>');
+            console.log(location.geometry.coordinates);
+            addMarker(location.geometry.coordinates);
+        });
+        $('#pointPicker').selectpicker('refresh');
+    }
+    function pickedPoint () {
+        var sel = $('#pointPicker');
+        //setMarker(sel.data('prev'), null);
+        var index = sel.val()[sel.val().length - 1];
+        setMarker(index, map);
+        //sel.data('prev', index);
+    }
 </script>
+
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACM-rbXIzhMtNX4ax1u7d-m70pQNDgVa4&callback=initMap">
+</script>
+
 </body>
 </html>

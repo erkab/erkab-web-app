@@ -1,4 +1,5 @@
-var map, infoWindow, myPosition;
+
+var map, infoWindow, myPosition, markers = [];
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -8,19 +9,14 @@ function initMap() {
 
     });
     infoWindow = new google.maps.InfoWindow();
-
-
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             myPosition = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
-            marker = new google.maps.Marker({
-                position: myPosition,
-                map: map
-            });
-
+            map.setCenter(myPosition);
+            map.setZoom(14);
         }, function () {
             handleLocationError(true, infoWindow, map.getCenter());
         });
@@ -36,4 +32,25 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         'Error: The Geolocation service failed.' :
         'Error: Your browser doesn\'t support geolocation.');
     infoWindow.open(map);
+}
+
+function clearMarkers() {
+    markers.forEach(function (marker) {
+        marker.setMap(null);
+    });
+    markers = [];
+}
+
+
+function addMarker (coords) {
+    markers.push(new google.maps.Marker({
+        position: new google.maps.LatLng(coords[1], coords[0]),
+        map: null
+    }));
+}
+
+function setMarker (index, map) {
+    if(index != null) {
+        markers[index].setMap(map);
+    }
 }
