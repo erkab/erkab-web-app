@@ -1,5 +1,5 @@
 
-var map, infoWindow, myPosition, markers = [];
+var map, infoWindow, currentPosition, markers = [];
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -8,14 +8,19 @@ function initMap() {
         gestureHandling: 'greedy' //Pan on mobile using 1 finger.
 
     });
+
     infoWindow = new google.maps.InfoWindow();
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
-            myPosition = {
+            currentPosition = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
-            map.setCenter(myPosition);
+            window.currentPositionMarker = new google.maps.Marker({
+                position: new google.maps.LatLng(currentPosition),
+                map: window.location.pathname === '/request' ? null : map
+            });
+            map.setCenter(currentPosition);
             map.setZoom(14);
         }, function () {
             handleLocationError(true, infoWindow, map.getCenter());
@@ -24,6 +29,7 @@ function initMap() {
         // Browser doesn't support Geolocation
         handleLocationError(false, infoWindow, map.getCenter());
     }
+    console.log("Finished init Map\n");
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {

@@ -157,6 +157,31 @@
     });
 </script>
 
+
+<script>
+    function pickedArea () {
+        $('#pointPicker').html('');
+        $('#pointPicker').selectpicker('refresh');
+        clearMarkers();
+        var area = $('#areaPicker').val();
+        window.locationsData[area].features.forEach(function (location, index) {
+            $('#pointPicker').append('<option value =' + index + '>' + location.properties.name + '</option>');
+            addMarker(location.geometry.coordinates);
+        });
+        $('#pointPicker').selectpicker('refresh');
+    }
+    function pickedPoint () {
+        $('#pointPicker').find('option').each(function(index, option){
+            setMarker(option.value, option.selected ? map : null);
+        });
+    }
+</script>
+
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACM-rbXIzhMtNX4ax1u7d-m70pQNDgVa4&callback=initMap">
+</script>
+
 <script>
     $(document).ready(function () {
         $.getJSON("public/ajax/locations.json", function (data) {
@@ -169,32 +194,6 @@
     });
 </script>
 
-<script>
-    function pickedArea () {
-        $('#pointPicker').html('');
-        $('#pointPicker').selectpicker('refresh');
-        clearMarkers();
-        var area = $('#areaPicker').val();
-        window.locationsData[area].features.forEach(function (location, index) {
-            $('#pointPicker').append('<option value =' + index + '>' + location.properties.name + '</option>');
-            console.log(location.geometry.coordinates);
-            addMarker(location.geometry.coordinates);
-        });
-        $('#pointPicker').selectpicker('refresh');
-    }
-    function pickedPoint () {
-        var sel = $('#pointPicker');
-        //setMarker(sel.data('prev'), null);
-        var index = sel.val()[sel.val().length - 1];
-        setMarker(index, map);
-        //sel.data('prev', index);
-    }
-</script>
-
-
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACM-rbXIzhMtNX4ax1u7d-m70pQNDgVa4&callback=initMap">
-</script>
 
 </body>
 </html>
