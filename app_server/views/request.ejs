@@ -165,14 +165,14 @@
         clearMarkers();
         var area = $('#areaPicker').val();
         window.locationsData[area].features.forEach(function (location, index) {
-            $('#pointPicker').append('<option value =' + index + '>' + location.properties.name + '</option>');
+            $('#pointPicker').append('<option value =' + location.properties.name + '>' + location.properties.name + '</option>');
             addMarker(location.geometry.coordinates);
         });
         $('#pointPicker').selectpicker('refresh');
     }
     function pickedPoint () {
         $('#pointPicker').find('option').each(function(index, option){
-            setMarker(option.value, option.selected ? map : null);
+            setMarker(index, option.selected ? map : null);
         });
     }
 </script>
