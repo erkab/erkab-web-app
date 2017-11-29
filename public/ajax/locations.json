@@ -16,7 +16,7 @@
       },
       {
         "type": "Feature",
-        "properties": {"name": "Fakahany el Nasr"},
+        "properties": {"name": "Fakahany El Nasr"},
         "geometry": {
           "type": "Point",
           "coordinates": [

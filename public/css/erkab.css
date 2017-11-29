@@ -7615,6 +7615,6 @@ body > * {
     background-color: white
 }
 
-#input_date, #input_text {
-
+.pref-btn {
+    width: 73.3333px;
 }
