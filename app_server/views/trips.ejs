@@ -7,7 +7,7 @@
     <!--- basic page needs
    ================================================== -->
     <meta charset="utf-8">
-    <title><%=user.firstName%>'s Trips - Erkab</title>
+    <title><%= user.firstName %>'s Trips - Erkab</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -38,7 +38,7 @@
 
 <!-- header
 ================================================== -->
-<% include templates/header.ejs%>
+<% include templates/header.ejs %>
 
 <!-- START OF CHANGEABLE VIEW -->
 <div id="changeableView" class="container-fluid">
@@ -54,9 +54,15 @@
         </thead>
         <tbody>
         <tr>
-            <th scope="row">1</th>
-
+            <% for(var i = 0; i < person.rideHistory.length; i++) { %>
+        <tr>
+            <th scope="row"><%= i + 1 %></th>
+            <td><%= person.rideHistory[i].userType %></td>
+            <td><%= person.rideHistory[i].area %></td>
+            <td><%= person.rideHistory[i].date %></td>
+            <td><%= person.rideHistory[i].time %></td>
         </tr>
+        <% } %>
         </tbody>
     </table>
 </div>
