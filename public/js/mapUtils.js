@@ -1,4 +1,3 @@
-
 var map, infoWindow, currentPosition, markers = [];
 
 function initMap() {
