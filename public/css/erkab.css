@@ -7492,6 +7492,7 @@ body > * {
 /* iPhone 6 & below */
 #map {
     height: calc(100vh - 235px);
+    /*box-shadow: 0px 1px 1px 0px #3938535e inset;*/
     width: 100vw;
 }
 
@@ -7614,6 +7615,6 @@ body > * {
     background-color: white
 }
 
-#input_date, #input_text {
-
+.pref-btn {
+    width: 73.3333px;
 }

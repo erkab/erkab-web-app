@@ -1,4 +1,7 @@
 var router = require('express').Router();
+var mongoose = require('mongoose');
+mongoose.connect('MONGODB_URI');
+var User = require('../app_server/model/user');
 
 router.get('/', checkLoggedIn, function (req, res) {
     res.render('request', {
@@ -16,6 +19,15 @@ router.post('/', checkLoggedIn, function (req, res) {
         time : req.body.time,
         driverPref : req.body.driverPref
     };
+
+    User.findByIdAndUpdate(
+        req.user._id,
+        {$push: {rideHistory: ride}},
+        {safe: true, upsert: true},
+        function (err, model) {
+            console.log(err + "Didn't work");
+        }
+    );
     res.redirect('/trips');
 });
 
