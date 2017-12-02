@@ -32,7 +32,8 @@ module.exports = {
                         newUser.password = newUser.generateHash(password);
                         newUser.firstName = req.body.firstName;
                         newUser.lastName = req.body.lastName;
-                        newUser.collegeId = req.body.mobileNum;
+                        newUser.mobileNum = req.body.mobileNum;
+                        newUser.collegeId = req.body.collegeId;
                         newUser.gender = req.body.gender;
                         newUser.save(function (err) {
                             if (err) {

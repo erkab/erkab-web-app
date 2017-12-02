@@ -3,7 +3,6 @@ var logout = require('./logout');
 var signup = require('./sign_up');
 var dashboard = require('./dashboard');
 var request = require('./request');
-var trips = require('./trips');
 var profile = require('./profile');
 
 module.exports = function (app, passport) {
@@ -12,7 +11,6 @@ module.exports = function (app, passport) {
     app.use('/signup', signup);
     app.use('/dashboard', dashboard);
     app.use('/request', request);
-    app.use('/trips', trips);
     app.use('/profile', profile);
     app.get('/', function(req, res) {
 

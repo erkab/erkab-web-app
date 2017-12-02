@@ -298,6 +298,7 @@
     position: relative;
     display: inline-flex;
     vertical-align: middle;
+    max-width: 100%;
 }
 
 .btn-group > .btn,
@@ -463,6 +464,7 @@
     border: 1px solid transparent;
     line-height: 1.25;
     transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    max-width: 100% !important;
 }
 
 .btn:focus, .btn:hover {
@@ -544,7 +546,7 @@ fieldset[disabled] a.btn {
 }
 
 .btn-success {
-    color: #fff;
+    color: #fff !important;
     background-color: #28a745;
     border-color: #28a745;
 }
@@ -572,7 +574,7 @@ fieldset[disabled] a.btn {
 }
 
 .btn-edited {
-    color: #fff;
+    color: #fff !important;
     background-color: #00d0be;
     border-color: #00cdbb;
 }
@@ -3843,7 +3845,7 @@ label {
     margin-top: 0.8rem;
     margin-bottom: 0.5rem;
     letter-spacing: 1px;
-    color: #393753;
+    color: #393753 !important;
 }
 
 button:focus {
@@ -7486,7 +7488,6 @@ body > * {
     background: linear-gradient(to top, #343a40 0%, transparent 100%);
 }
 
-
 /* TO DO: LANDSCAPE SUPPORT */
 
 /* iPhone 6 & below */
@@ -7530,28 +7531,24 @@ body > * {
     display: none;
 }
 
-@media (min-width: 724px) {
+@media (min-width: 576px) {
     .map-request {
         display: inline-block;
         border-radius: 8px;
-        margin-top: 10px !important;
-        height: calc(100vh - 150px) !important;
+        height: calc(100vh - 90px) !important;
         width: 100% !important;
         margin-right: auto;
     }
-}
 
-.right-div {
-    width: 66.66667% !important;
-    max-width: calc(100% - 200px) !important;
-    display: inline-block;
+    .right-div {
+        width: 66.66667% !important;
+        position: fixed !important;
+        top: 80px !important;
+        right: 0 !important;
+        bottom: 10px !important;
+        display: inline-block;
+    }
 }
-
-/*.left-div {*/
-    /*width: 33.3333% !important;*/
-    /*min-width: 200px !important;*/
-    /*display: inline-block;*/
-/*}*/
 
 #rideBtn {
     cursor: pointer;
@@ -7565,13 +7562,13 @@ body > * {
 }
 
 #loadingLbl {
-    font-size: 500%;
-    color: #00d0be;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    font-size: 500% !important;
+    color: #00d0be !important;
+    text-align: center !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
 }
 
 #locBtn {
@@ -7579,7 +7576,7 @@ body > * {
     width: 40px;
 }
 
-@media (max-width: 469px) {
+@media (max-width: 883px) {
     #locBtn {
         margin-top: 5px;
         width: 220px;
@@ -7589,21 +7586,8 @@ body > * {
 #erkabBtn {
     border-radius: 8px;
     width: 220px;
-}
-
-.request-container {
-    /*margin-top: 10px;*/
-    /*margin-left: 5px;*/
-    /*margin-right: 5px;*/
-    width: 100%;
-}
-
-@media (max-width: 712px) {
-    #center-block {
-        display: table;
-        margin: auto;
-        text-align: center;
-    }
+    font-family: "montserrat-regular", sans-serif;
+    max-width: 100%;
 }
 
 .sticky-div {
@@ -7617,4 +7601,71 @@ body > * {
 
 .pref-btn {
     width: 73.3333px;
+    max-width: 100%;
+}
+
+.stats-lbl {
+    font-style: normal;
+    letter-spacing: 0.4rem;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.input-margin-auto {
+    margin: auto;
+}
+
+#saveBtn {
+    font-family: "montserrat-regular", sans-serif;
+    width: 80%;
+}
+
+#cancelBtn {
+    width: 20%;
+}
+
+#save-cancel-btn-group {
+    width: 220px;
+}
+
+.main-title {
+    letter-spacing: 0.2rem;
+}
+
+.edit-profile-col {
+    background-color: #393853;
+    border-top-right-radius: 16px;
+}
+
+@media (max-width: 576px ) {
+    .edit-profile-col {
+        border-top-right-radius: 0;
+    }
+}
+
+.edit-profile-sticky-div {
+    background-color: #393853;
+}
+
+.edit-profile-label {
+    color: #FFFFFF;
+}
+
+.edit-profile-hr {
+    border-top: 1px solid rgb(210, 210, 210);
+}
+
+.trip-table-th {
+    border-bottom-width: 1px !important;
+    color: #393853 !important;
+}
+
+.trip-table {
+    margin-bottom: 0px !important;
 }

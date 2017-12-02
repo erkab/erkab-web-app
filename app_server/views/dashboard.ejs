@@ -51,24 +51,23 @@
     <div class="container text-black bg-white">
         <div class="row">
             <div class="col-md-12">
-                <h4 class="text-center text-black" style="margin-top: 1rem">Welcome back, <%= user.firstName %>.</h4>
-                <p class="text-center display-4"><i><span
-                                style="font-style: normal;">Y O U R &nbsp; S T A T S</span></i>
+                <h4 class="text-center text-black capitalize" style="margin-top: 1rem">Welcome back, <%= user.firstName %>.</h4>
+                <p class="text-center display-4 uppercase"><i><span class="stats-lbl">your stats</span></i>
                 </p>
             </div>
         </div>
         <div class="row w-100 text-center mx-auto">
             <div class="col-md-4 text-center col-4 col-sm-4 col-lg-4 col-xl-4 align-self-stretch">
                 <h1 id="stats" class="text-center display-3 counter" data-count="259">0</h1>
-                <h4 class="text-center text-erkab"><i class="fa fa-usd"></i><span class="badge">SAVED</span></h4>
+                <h4 class="text-center text-erkab"><i class="fa fa-usd"></i><span class="badge uppercase">saved</span></h4>
             </div>
             <div class="col-md-4 text-center col-4 col-sm-4 col-lg-4 col-xl-4 align-self-stretch">
                 <h1 id="stats" class="text-center display-3 counter" data-count="11">0</h1>
-                <h4 class="text-center text-erkab"><i class="fa fa-car"></i><span class="badge">RIDES</span></h4>
+                <h4 class="text-center text-erkab"><i class="fa fa-car"></i><span class="badge uppercase">rides</span></h4>
             </div>
             <div class="col-md-4 text-center col-sm-4 col-4 align-self-stretch col-lg-4 col-xl-4">
                 <h1 id="stats" class="text-center display-3 counter" data-count="142">0</h1>
-                <h4 class="text-center text-erkab"><i class="fa fa-exchange"></i><span class="badge">KM</span>
+                <h4 class="text-center text-erkab"><i class="fa fa-exchange"></i><span class="badge uppercase">km</span>
                 </h4>
             </div>
         </div>
@@ -76,7 +75,7 @@
     <div id="map"></div>
     <div id="rideDiv">
         <a id="rideBtn" class="btn btn-lg btn-edited" href="/request"><i class="fa fa-fw fa-search"></i><span
-                    class="badge">FIND A RIDE</span></a>
+                    class="badge uppercase">find a ride</span></a>
     </div>
 </div>
 <!-- END OF CHANGEABLE VIEW -->

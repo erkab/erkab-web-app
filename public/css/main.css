@@ -133,7 +133,7 @@ p img {
 }
 
 p.lead {
-    font-family: "muli-light", sans-serif;
+    font-family: "muli-regular", sans-serif;
     font-size: 2.1rem;
     line-height: 1.857;
     color: #838383;
@@ -502,7 +502,7 @@ select {
     outline: none;
     color: #000000;
     height: 37.5px;
-    width:  220px;
+    width: 220px;
     font-family: "muli-regular", sans-serif;
     font-size: 1.5rem;
     line-height: 3rem;
@@ -581,8 +581,8 @@ select:focus {
 
 label,
 legend {
-    font-family: "montserrat-light", sans-serif;
-    font-size: 1.4rem;
+    font-family: "montserrat-light", sans-serif !important;
+    font-size: 1.4rem !important;
     margin-bottom: .6rem;
     color: #151515;
     display: block;
@@ -1162,7 +1162,8 @@ h1.intro-header::before {
     height: 3.6rem;
     line-height: calc(3.6rem - .6rem);
     padding: 0 1.5rem;
-    font-family: "montserrat-medium", sans-serif;
+    font-family: "montserrat-regular", sans-serif;
+    font-weight: 700;
     font-size: 14px;
     text-transform: none;
     letter-spacing: normal;
@@ -1201,7 +1202,7 @@ h1.intro-header::before {
     #header-nav-wrap .header-main-nav {
         display: block;
         height: auto;
-        margin: 0 0 4.2rem 0;
+        margin: 0 0 3rem 0;
         border-top: 1px solid rgba(255, 255, 255, 0.03);
     }
 

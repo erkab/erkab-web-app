@@ -47,70 +47,64 @@
 
 </head>
 
-<body id="top">
+<body>
 
 <!-- header
 ================================================== -->
 <% include templates/header.ejs %>
 
-<div id="changeableView" class="request-container">
+<div id="changeableView" class="container-fluid">
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 left-div">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 text-center">
             <form action="/request" method="post">
-                <div id="center-block">
-                    <div class="sticky-div">
-                        <h4 class="text-black">SET RIDE PREFERENCES</h4>
-                        <hr>
-                    </div>
-                    <input name="userType" type="checkbox" checked data-toggle="toggle" data-on="RIDER" value="Rider"
-                           data-off="DRIVER"
-                           data-onstyle="success" data-offstyle="danger" data-width="220px">
-                    <br>
-                    <label>AREA</label><br>
-
-                    <select id="areaPicker" name="area" onchange="pickedArea();" class="selectpicker" data-live-search="true">
-                        <option selected disabled>Select area</option>
-                    </select>
-
-                    <button id="locBtn" name="myLocation" type="button" class="btn btn-edited inline-block"><i
-                                class="fa fa-map-marker"></i>
-                    </button>
-                    <br>
-
-                    <label>PICKUP POINTS</label><br>
-                    <select id="pointPicker" name="points" onchange="pickedPoint();" class="selectpicker" multiple
-                            data-selected-text-format="count"
-                            title="Select pickup point">
-                    </select>
-
-                    <br>
-                    <div id="center-block">
-                        <label>DATE</label><br>
-                        <input name="date" type="text" id="input_date" placeholder="Set pickup date">
-                        <label>TIME</label><br>
-                        <input name="time" type="text" id="input_time" placeholder="Set pickup time">
-                        <br>
-                        <label>DRIVER PREFERENCE</label><br>
-                        <div class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-edited pref-btn active">
-                                <input type="radio" name="driverPref" value="No Pref." autocomplete="off" checked><i
-                                        class="fa fa-times"></i></label>
-                            <label class="btn btn-edited pref-btn">
-                                <input type="radio" name="driverPref" value="Male" autocomplete="off"><i
-                                        class="fa fa-male"></i></label>
-                            <label class="btn btn-edited pref-btn">
-                                <input type="radio" name="driverPref" value="Female" autocomplete="off"><i
-                                        class="fa fa-female"></i></label>
-                        </div>
-                        <br><br>
-                        <button name="erkabBtn" id="erkabBtn" type="submit" class="btn btn-edited"><i
-                                    class="fa fa-car"></i> ERKAB
-                        </button>
-                    </div>
+                <div class="sticky-div">
+                    <h4 class="text-black main-title uppercase">Set Ride Preferences</h4>
+                    <hr>
                 </div>
+                <input class="input-margin-auto" name="userType" type="checkbox" checked data-toggle="toggle"
+                       data-on="RIDER" value="Rider"
+                       data-off="DRIVER"
+                       data-onstyle="success" data-offstyle="danger" data-width="220px">
+                <br><br>
+                <label>AREA</label><br>
+                <select class="input-margin-auto" id="areaPicker" name="area" onchange="pickedArea();"
+                        class="selectpicker" data-live-search="true">
+                    <option selected disabled>Select area</option>
+                </select>
+                <!--<button id="locBtn" name="myLocation" type="button" class="btn btn-edited inline-block"><i-->
+                <!--class="fa fa-map-marker"></i>-->
+                <!--</button>-->
+                <br>
+                <label class="uppercase">Pickup Points</label><br>
+                <select class="input-margin-auto" id="pointPicker" name="points" onchange="pickedPoint();"
+                        class="selectpicker" multiple
+                        data-selected-text-format="count"
+                        title="Select pickup point">
+                </select>
+                <br>
+                <label class="uppercase">Date</label><br>
+                <input class="input-margin-auto" name="date" type="text" id="input_date" placeholder="Set pickup date">
+                <label class="uppercase">Time</label><br>
+                <input class="input-margin-auto" name="time" type="text" id="input_time" placeholder="Set pickup time">
+                <label class="uppercase">Driver Preference</label><br>
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-edited pref-btn active">
+                        <input type="radio" name="driverPref" value="No Pref." autocomplete="off" checked><i
+                                class="fa fa-times"></i></label>
+                    <label class="btn btn-edited pref-btn">
+                        <input type="radio" name="driverPref" value="Male" autocomplete="off"><i
+                                class="fa fa-male"></i></label>
+                    <label class="btn btn-edited pref-btn">
+                        <input type="radio" name="driverPref" value="Female" autocomplete="off"><i
+                                class="fa fa-female"></i></label>
+                </div>
+                <br><br>
+                <button id="erkabBtn" type="submit" class="btn btn-edited"><i
+                            class="fa fa-car"></i> Erkab
+                </button>
             </form>
         </div>
-        <div class="col-lg-8 right-div">
+        <div class="col-sm-8 col-md-8 col-lg-8 right-div">
             <div id="map" class="map-request"></div>
         </div>
     </div>
@@ -152,7 +146,7 @@
 
 
 <script>
-    function pickedArea () {
+    function pickedArea() {
         $('#pointPicker').html('');
         $('#pointPicker').selectpicker('refresh');
         clearMarkers();
@@ -163,8 +157,9 @@
         });
         $('#pointPicker').selectpicker('refresh');
     }
-    function pickedPoint () {
-        $('#pointPicker').find('option').each(function(index, option){
+
+    function pickedPoint() {
+        $('#pointPicker').find('option').each(function (index, option) {
             setMarker(index, option.selected ? map : null);
         });
     }
@@ -172,7 +167,7 @@
 
 
 <script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACM-rbXIzhMtNX4ax1u7d-m70pQNDgVa4&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACM-rbXIzhMtNX4ax1u7d-m70pQNDgVa4&callback=initMap">
 </script>
 
 <script>

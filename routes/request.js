@@ -12,12 +12,12 @@ router.get('/', checkLoggedIn, function (req, res) {
 router.post('/', checkLoggedIn, function (req, res) {
     console.log(req.body); //data should be stored in DB
     var ride = {
-        userType : req.body.userType,
-        area : req.body.area,
-        points : req.body.points,
-        date : req.body.date,
-        time : req.body.time,
-        driverPref : req.body.driverPref
+        userType: req.body.userType,
+        area: req.body.area,
+        points: req.body.points,
+        date: req.body.date,
+        time: req.body.time,
+        driverPref: req.body.driverPref
     };
 
     User.findByIdAndUpdate(
@@ -25,10 +25,10 @@ router.post('/', checkLoggedIn, function (req, res) {
         {$push: {rideHistory: ride}},
         {safe: true, upsert: true},
         function (err, model) {
-            console.log(err + "Didn't work");
+            console.log(err);
         }
     );
-    res.redirect('/trips');
+    res.redirect('/profile');
 });
 
 function checkLoggedIn(req, res, next) {
@@ -38,4 +38,5 @@ function checkLoggedIn(req, res, next) {
     //Redirect to home if not logged in
     res.redirect('/');
 }
+
 module.exports = router;
