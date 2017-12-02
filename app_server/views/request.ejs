@@ -125,11 +125,18 @@
 <script src="/public/js/picker.time.js"></script>
 <script src="/public/js/bootstrap-toggle.min.js"></script>
 <script>
-    var $inputDate = $('#input_date').pickadate(),
+    var $inputDate = $('#input_date').pickadate({
+        formatSubmit: 'yyyy/mm/dd',
+        hiddenName: true
+    })
         picker = $inputDate.pickadate('picker');
 </script>
 <script>
-    var $inputTime = $('#input_time').pickatime(),
+    var $inputTime = $('#input_time').pickatime({
+        formatSubmit: 'HH:i',
+        hiddenName: true,
+        interval: 15
+    })
         picker = $inputTime.pickatime('picker');
 </script>
 <script>

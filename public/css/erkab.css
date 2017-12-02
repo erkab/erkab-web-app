@@ -7640,7 +7640,7 @@ body > * {
 
 .edit-profile-col {
     background-color: #393853;
-    border-top-right-radius: 16px;
+    /*border-top-right-radius: 16px;*/
 }
 
 @media (max-width: 576px ) {

@@ -49,8 +49,41 @@
 
     <h1 class="container text-center uppercase main-title"><%= user.firstName %>'s Account</h1>
     <div class="row">
+
+        <div class="col-xs-12 col-sm-8 col-sm-push-4 col-md-8 col-md-push-4 col-lg-8 col-lg-push-4">
+            <!-- Add table here -->
+            <div class="sticky-div">
+                <h3 class="main-title uppercase text-center"><i class="fa fa-suitcase"></i> Your Trips</h3>
+                <hr class="edit-profile-hr">
+            </div>
+
+            <table class="table table-hover text-center">
+                <thead class="thead">
+                <tr>
+                    <th class="trip-table-th">#</th>
+                    <th class="trip-table-th"><i class="fa fa-user"></i></th>
+                    <th class="trip-table-th"><i class="fa fa-map-marker"></i></th>
+                    <th class="trip-table-th"><i class="fa fa-calendar"></i></th>
+                    <th class="trip-table-th"><i class="fa fa-clock-o"></i></th>
+                </tr>
+                </thead>
+                <tbody class="text-center">
+                <tr>
+                    <% for(var i = 0; i < person.rideHistory.length; i++) { %>
+                <tr>
+                    <th scope="row" class="text-center"><%= i + 1 %></th>
+                    <td class="text-center"><%= person.rideHistory[i].userType %></td>
+                    <td class="text-center"><%= person.rideHistory[i].area %></td>
+                    <td class="text-center"><%= person.rideHistory[i].date %></td>
+                    <td class="text-center"><%= person.rideHistory[i].time %></td>
+                </tr>
+                <% } %>
+                </tbody>
+            </table>
+        </div>
+
         <!-- edit form column -->
-        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 text-center edit-profile-col">
+        <div class="col-xs-12 col-sm-4 col-sm-pull-8 col-md-4 col-md-pull-8 col-lg-4 col-lg-pull-8 text-center edit-profile-col">
             <div class="sticky-div edit-profile-sticky-div">
                 <h3 class="main-title uppercase text-white"><i class="fa fa-pencil-square-o"></i> Edit Profile</h3>
                 <hr class="edit-profile-hr">
@@ -96,45 +129,19 @@
             </form>
         </div>
 
-        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-            <!-- Add table here -->
-            <div class="sticky-div">
-                <h3 class="main-title uppercase text-center"><i class="fa fa-suitcase"></i> Your Trips</h3>
-                <hr class="edit-profile-hr">
-            </div>
 
-            <table class="table table-hover">
-                <thead class="thead">
-                <tr>
-                    <th class="trip-table-th">#</th>
-                    <th class="trip-table-th">USER TYPE</th>
-                    <th class="trip-table-th">LOCATION</th>
-                    <th class="trip-table-th">DATE</th>
-                    <th class="trip-table-th">TIME</th>
-                </tr>
-                </thead>
-                <tbody class="text-center">
-                <tr>
-                    <% for(var i = 0; i < person.rideHistory.length; i++) { %>
-                <tr>
-                    <th scope="row"><%= i + 1 %></th>
-                    <td><%= person.rideHistory[i].userType %></td>
-                    <td><%= person.rideHistory[i].area %></td>
-                    <td><%= person.rideHistory[i].date %></td>
-                    <td><%= person.rideHistory[i].time %></td>
-                </tr>
-                <% } %>
-                </tbody>
-            </table>
-        </div>
+
+
     </div>
-    <!-- END OF CHANGEABLE VIEW -->
+</div>
 
-    <% include templates/preloader.ejs %>
+<!-- END OF CHANGEABLE VIEW -->
 
-    <!-- Java Script
-    ================================================== -->
-    <script src="/public/js/jquery-2.1.3.min.js"></script>
-    <script src="/public/js/main.js"></script>
+<% include templates/preloader.ejs %>
+
+<!-- Java Script
+================================================== -->
+<script src="/public/js/jquery-2.1.3.min.js"></script>
+<script src="/public/js/main.js"></script>
 </body>
 </html>
