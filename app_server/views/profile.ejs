@@ -42,7 +42,7 @@
 
 <body>
 
-<!-- Modal -->
+<!-- Trip Summary (Ride info) Modal -->
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-md">
         <div class="modal-content">
@@ -88,7 +88,8 @@
                 </tr>
                 </thead>
                 <tbody class="text-center">
-                <% for(var i = 0; i < person.rideHistory.length; i++) { %>
+                <% if(person.rideHistory.length > 0) {
+                for(var i = 0; i < person.rideHistory.length; i++) { %>
                 <tr class='clickable-row' data-toggle="modal" data-target="#myModal" data-backdrop="true"
                     style="cursor:pointer">
                     <th scope="row" class="text-center"><%= i + 1 %></th>
@@ -98,12 +99,13 @@
                     <td class="text-center"><%= person.rideHistory[i].time %></td>
                 </tr>
                 <% } %>
+                <% } else { %>
+                <td colspan="5" class="text-center"><i class="fa fa-exclamation-circle"></i> No ride data available.
+                </td>
+                <% } %>
                 </tbody>
             </table>
         </div>
-
-        <!-- Ride Info Modal -->
-
 
         <!-- edit form column -->
         <div class="col-xs-12 col-sm-4 col-sm-pull-8 col-md-4 col-md-pull-8 col-lg-4 col-lg-pull-8 text-center edit-profile-col">
@@ -151,7 +153,6 @@
                 </div>
             </form>
         </div>
-
     </div>
 </div>
 
