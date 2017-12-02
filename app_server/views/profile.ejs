@@ -42,6 +42,26 @@
 
 <body>
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title main-title uppercase">Trip Summary - 02/12/2017</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Fare:</strong> 16EGP <br> <strong>Distance:</strong> 13KM <br> <strong>Pickup Point:</strong>
+                    McDonald's Stanley <br> <strong>Driver:</strong> Ahmed K. <br> <strong>Car Model:</strong> Toyota
+                    Corolla <br> <strong>Color:</strong> Silver <br> <strong>License No:</strong> 321 SLA</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <% include templates/header.ejs %>
 
 <!-- START OF CHANGEABLE VIEW -->
@@ -51,7 +71,7 @@
     <div class="row">
 
         <div class="col-xs-12 col-sm-8 col-sm-push-4 col-md-8 col-md-push-4 col-lg-8 col-lg-push-4">
-            <!-- Add table here -->
+
             <div class="sticky-div">
                 <h3 class="main-title uppercase text-center"><i class="fa fa-suitcase"></i> Your Trips</h3>
                 <hr class="edit-profile-hr">
@@ -60,17 +80,17 @@
             <table class="table table-hover text-center">
                 <thead class="thead">
                 <tr>
-                    <th class="trip-table-th">#</th>
-                    <th class="trip-table-th"><i class="fa fa-user"></i></th>
-                    <th class="trip-table-th"><i class="fa fa-map-marker"></i></th>
-                    <th class="trip-table-th"><i class="fa fa-calendar"></i></th>
-                    <th class="trip-table-th"><i class="fa fa-clock-o"></i></th>
+                    <th>#</th>
+                    <th><i title="User Type" class="fa fa-user"></i></th>
+                    <th><i title="Location" class="fa fa-map-marker"></i></th>
+                    <th><i title="Date" class="fa fa-calendar"></i></th>
+                    <th><i title="Time" class="fa fa-clock-o"></i></th>
                 </tr>
                 </thead>
                 <tbody class="text-center">
-                <tr>
-                    <% for(var i = 0; i < person.rideHistory.length; i++) { %>
-                <tr>
+                <% for(var i = 0; i < person.rideHistory.length; i++) { %>
+                <tr class='clickable-row' data-toggle="modal" data-target="#myModal" data-backdrop="true"
+                    style="cursor:pointer">
                     <th scope="row" class="text-center"><%= i + 1 %></th>
                     <td class="text-center"><%= person.rideHistory[i].userType %></td>
                     <td class="text-center"><%= person.rideHistory[i].area %></td>
@@ -81,6 +101,9 @@
                 </tbody>
             </table>
         </div>
+
+        <!-- Ride Info Modal -->
+
 
         <!-- edit form column -->
         <div class="col-xs-12 col-sm-4 col-sm-pull-8 col-md-4 col-md-pull-8 col-lg-4 col-lg-pull-8 text-center edit-profile-col">
@@ -129,9 +152,6 @@
             </form>
         </div>
 
-
-
-
     </div>
 </div>
 
@@ -143,5 +163,7 @@
 ================================================== -->
 <script src="/public/js/jquery-2.1.3.min.js"></script>
 <script src="/public/js/main.js"></script>
+<script src="/public/js/bootstrap.min.js"></script>
+
 </body>
 </html>
