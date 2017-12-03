@@ -7630,6 +7630,12 @@ body > * {
     width: 20%;
 }
 
+#editBtn {
+    font-family: "montserrat-regular", sans-serif;
+    width: 220px;
+    max-width: 100%;
+}
+
 #save-cancel-btn-group {
     width: 220px;
 }
@@ -7638,15 +7644,15 @@ body > * {
     letter-spacing: 0.2rem;
 }
 
+@media (min-width:576px) {
+    .title-margin {
+        margin-bottom: 25px;
+    }
+}
+
 .edit-profile-col {
     background-color: #393853;
     /*border-top-right-radius: 16px;*/
-}
-
-@media (max-width: 576px ) {
-    .edit-profile-col {
-        border-top-right-radius: 0;
-    }
 }
 
 .edit-profile-sticky-div {
@@ -7659,6 +7665,12 @@ body > * {
 
 .edit-profile-hr {
     border-top: 1px solid rgb(210, 210, 210);
+}
+
+.readonly-input {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+    color: white !important;
+    text-align: center !important;
 }
 
 .close {
