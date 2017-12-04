@@ -7607,6 +7607,7 @@ body > * {
 .stats-lbl {
     font-style: normal;
     letter-spacing: 0.4rem;
+    font-family: "muli-regular", sans-serif !important;
 }
 
 .uppercase {
@@ -7615,6 +7616,10 @@ body > * {
 
 .capitalize {
     text-transform: capitalize;
+}
+
+.spaced-letters {
+    letter-spacing: 0.08rem;
 }
 
 .input-margin-auto {

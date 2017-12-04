@@ -6,11 +6,12 @@
 
     <nav id="header-nav-wrap">
         <ul class="header-main-nav">
-            <li class="current"><a href="/dashboard" title="Dashboard"><i
+            <li class="current"><a href="/dashboard" title="Dashboard" class="main-title uppercase"><i
                             class="fa fa-fw fa-tachometer"></i>&nbsp;Dashboard</a></li>
-            <li><a href="/alerts" title="Notifications"><i
+            <li><a href="/alerts" title="Notifications" class="main-title uppercase"><i
                             class="fa fa-fw fa-bell"></i>&nbsp;Alerts</a></li>
-            <li><a href="/profile" title="Profile"><i class="fa fa-fw fa-user-circle-o"></i>&nbsp;<%= user.email %>
+            <li><a href="/profile" title="Profile" class="main-title uppercase"><i
+                            class="fa fa-fw fa-user-circle-o"></i>&nbsp;<%= user.firstName %>
                 </a></li>
         </ul>
         <a href="/logout" title="sign-up" class="button button-primary cta"><i

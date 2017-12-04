@@ -2,7 +2,7 @@ $('.counter').each(function () {
     var $this = $(this),
         countTo = $this.attr('data-count');
 
-    $({countNum: $this.text()}).delay(4500).animate({
+    $({countNum: $this.text()}).delay(500).animate({
             countNum: countTo
         },
 

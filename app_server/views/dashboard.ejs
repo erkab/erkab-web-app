@@ -41,34 +41,37 @@
 
 <body>
 
-<% include templates/header.ejs%>
+<% include templates/header.ejs %>
 
 <!-- START OF CHANGEABLE VIEW -->
 <div id="changeableView">
-    <div class="container text-black bg-white">
-        <div class="row">
-            <div class="col-md-12">
-                <h4 class="text-center text-black" style="margin-top: 1rem">Welcome back, <%= user.firstName %>.</h4>
-                <p class="text-center display-4 uppercase"><i><span class="stats-lbl">your stats</span></i>
-                </p>
-            </div>
+
+    <!-- TO BE REMOVED - Replaced with a Live Updates Ticker (Current unmatched requests) -->
+    <div class="row">
+        <div class="col-12">
+            <h4 class="text-center text-black" style="margin-top: 1rem">Welcome back, <%= user.firstName %>.</h4><br>
+            <h3 class="main-title uppercase text-center"><i class="fa fa-line-chart"></i> Your Stats</h3>
         </div>
-        <div class="row w-100 text-center mx-auto">
-            <div class="col-md-4 text-center col-4 col-sm-4 col-lg-4 col-xl-4 align-self-stretch">
-                <h1 id="stats" class="text-center display-3 counter" data-count="259">0</h1>
-                <h4 class="text-center text-erkab"><i class="fa fa-usd"></i><span class="badge uppercase">saved</span></h4>
-            </div>
-            <div class="col-md-4 text-center col-4 col-sm-4 col-lg-4 col-xl-4 align-self-stretch">
-                <h1 id="stats" class="text-center display-3 counter" data-count="11">0</h1>
-                <h4 class="text-center text-erkab"><i class="fa fa-car"></i><span class="badge uppercase">rides</span></h4>
-            </div>
-            <div class="col-md-4 text-center col-sm-4 col-4 align-self-stretch col-lg-4 col-xl-4">
-                <h1 id="stats" class="text-center display-3 counter" data-count="142">0</h1>
-                <h4 class="text-center text-erkab"><i class="fa fa-exchange"></i><span class="badge uppercase">km</span>
-                </h4>
-            </div>
+
+        <div class="col-md-4 text-center col-4 col-sm-4 col-lg-4 col-xl-4 align-self-stretch">
+            <h1 id="stats" class="text-center display-3 counter" data-count="259">0</h1>
+            <h4 class="text-center text-erkab"><i class="fa fa-usd"></i><span
+                        class="badge spaced-letters uppercase">Saved</span></h4>
+        </div>
+        <div class="col-md-4 text-center col-4 col-sm-4 col-lg-4 col-xl-4 align-self-stretch">
+            <h1 id="stats" class="text-center display-3 counter" data-count="11">0</h1>
+            <h4 class="text-center text-erkab"><i class="fa fa-car"></i><span
+                        class="badge spaced-letters uppercase">Rides</span></h4>
+        </div>
+        <div class="col-md-4 text-center col-sm-4 col-4 align-self-stretch col-lg-4 col-xl-4">
+            <h1 id="stats" class="text-center display-3 counter" data-count="142">0</h1>
+            <h4 class="text-center text-erkab"><i class="fa fa-exchange"></i><span
+                        class="badge spaced-letters uppercase">Km</span>
+            </h4>
         </div>
     </div>
+
+
     <div id="map"></div>
     <div id="rideDiv">
         <a id="rideBtn" class="btn btn-lg btn-edited" href="/request"><i class="fa fa-fw fa-search"></i><span
@@ -83,7 +86,6 @@
 ================================================== -->
 <script src="/public/js/jquery-2.1.3.min.js"></script>
 <script src="/public/js/main.js"></script>
-<script src="/public/js/counter.js"></script>
 <script src="/public/js/mapUtils.js"></script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACM-rbXIzhMtNX4ax1u7d-m70pQNDgVa4&callback=initMap">
