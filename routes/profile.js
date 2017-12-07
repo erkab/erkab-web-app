@@ -4,10 +4,10 @@ mongoose.connect('MONGODB_URI');
 var User = require('../app_server/model/user');
 
 router.get('/', checkLoggedIn, function (req, res) {
-    User.findById(req.user._id, function (err, person) {
-        if (err) return console.log(err);
-        res.render('profile', {user: req.user, person: person});
-    });
+    // User.findById(req.user._id, function (err, person) {
+    //     if (err) return console.log(err);
+    // });
+    res.render('profile', {user: req.user});
 });
 
 //Should pass the new password in the hashing function before updating the database. (password: req.body.newPassword)

@@ -10,16 +10,17 @@ router.get('/', checkLoggedIn, function (req, res) {
 });
 
 router.post('/', checkLoggedIn, function (req, res) {
-    console.log(req.body); //data should be stored in DB
+    var userType = "Rider";
+    if(req.body.userType != "Rider")
+        userType = "Driver";
     var ride = {
-        userType: req.body.userType,
+        userType: userType,
         area: req.body.area,
         points: req.body.points,
         date: req.body.date,
         time: req.body.time,
         driverPref: req.body.driverPref
     };
-
     User.findByIdAndUpdate(
         req.user._id,
         {$push: {rideHistory: ride}},

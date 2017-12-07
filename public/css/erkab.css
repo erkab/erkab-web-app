@@ -575,14 +575,15 @@ fieldset[disabled] a.btn {
 
 .btn-edited {
     color: #fff !important;
-    background-color: #00d0be;
+    /*background-color: #00d0be;*/
+    background-color: #03dedd;
     border-color: #00cdbb;
 }
 
 .btn-edited:hover {
     color: #fff;
-    background-color: #00baaa;
-    border-color: #00af9f;
+    background-color: #03bfbe;
+    border-color: #03aead;
 }
 
 .btn-edited:focus, .btn-edited.focus {
@@ -7492,38 +7493,41 @@ body > * {
 
 /* iPhone 6 & below */
 #map {
-    height: calc(100vh - 235px);
+    /*height: calc(100vh - 235px);*/
+    height: calc(100vh - 222px);
+
     /*box-shadow: 0px 1px 1px 0px #3938535e inset;*/
     width: 100vw;
 }
 
 @media (min-width: 320px) {
     #map {
-        height: calc(100vh - 215px);
+        /*height: calc(100vh - 215px);*/
+        height: calc(100vh - 222px);
     }
 }
 
 @media (min-width: 360px) {
     #map {
-        height: calc(100vh - 225px);
+        /*height: calc(100vh - 225px);*/
     }
 }
 
 @media (min-width: 412px) {
     #map {
-        height: calc(100vh - 235px);
+        /*height: calc(100vh - 235px);*/
     }
 }
 
 @media (min-width: 764px) {
     #map {
-        height: calc(100vh - 225px);
+        height: calc(100vh - 222px);
     }
 }
 
 @media (min-width: 1025px) {
     #map {
-        height: calc(100vh - 235px);
+        /*height: calc(100vh - 235px);*/
     }
 }
 
@@ -7649,7 +7653,7 @@ body > * {
     letter-spacing: 0.2rem;
 }
 
-@media (min-width:576px) {
+@media (min-width: 576px) {
     .title-margin {
         margin-bottom: 25px;
     }

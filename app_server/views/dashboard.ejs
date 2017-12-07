@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="/public/css/base.css">
     <link rel="stylesheet" href="/public/css/main.css">
     <link rel="stylesheet" href="/public/css/erkab.css">
+    <link rel="stylesheet" href="/public/css/ticker.css">
 
     <!-- script
    ================================================== -->
@@ -46,36 +47,53 @@
 <!-- START OF CHANGEABLE VIEW -->
 <div id="changeableView">
 
-    <!-- TO BE REMOVED - Replaced with a Live Updates Ticker (Current unmatched requests) -->
-    <div class="row">
-        <div class="col-12">
-            <h4 class="text-center text-black" style="margin-top: 1rem">Welcome back, <%= user.firstName %>.</h4><br>
-            <h3 class="main-title uppercase text-center"><i class="fa fa-line-chart"></i> Your Stats</h3>
-        </div>
+    <a class="weatherwidget-io" href="https://forecast7.com/en/30d7629d70/alexandria-governorate/"
+       data-label_1="ALEXANDRIA" data-label_2="WEATHER" data-font="Ubuntu" data-icons="Climacons Animated"
+       data-mode="Current" data-days="3" data-theme="pure" data-textColor="#393953" style="height: 300px !important;">ALEXANDRIA
+        WEATHER</a>
 
-        <div class="col-md-4 text-center col-4 col-sm-4 col-lg-4 col-xl-4 align-self-stretch">
-            <h1 id="stats" class="text-center display-3 counter" data-count="259">0</h1>
-            <h4 class="text-center text-erkab"><i class="fa fa-usd"></i><span
-                        class="badge spaced-letters uppercase">Saved</span></h4>
+    <div class="ticker-container">
+        <div class="ticker-caption">
+
+            <!-- The info displayed here acts as a placeholder for the ride request info. -->
+            <p class="uppercase">Latest Requests</p>
         </div>
-        <div class="col-md-4 text-center col-4 col-sm-4 col-lg-4 col-xl-4 align-self-stretch">
-            <h1 id="stats" class="text-center display-3 counter" data-count="11">0</h1>
-            <h4 class="text-center text-erkab"><i class="fa fa-car"></i><span
-                        class="badge spaced-letters uppercase">Rides</span></h4>
-        </div>
-        <div class="col-md-4 text-center col-sm-4 col-4 align-self-stretch col-lg-4 col-xl-4">
-            <h1 id="stats" class="text-center display-3 counter" data-count="142">0</h1>
-            <h4 class="text-center text-erkab"><i class="fa fa-exchange"></i><span
-                        class="badge spaced-letters uppercase">Km</span>
-            </h4>
-        </div>
+        <ul>
+            <% if(user.rideHistory.length > 0) {
+            for(var i = 0; i < user.rideHistory.length; i++) { %>
+            <div>
+                <li><span><span class="badge badge-pill badge-warning uppercase d-inline"><%= user.rideHistory[i].userType %></span> <i
+                                class="fa fa-fw fa-calendar"></i> <%= user.rideHistory[i].date %> - <i
+                                class="fa fa-fw fa-clock-o"></i> <%= user.rideHistory[i].time %> - <i
+                                class="fa fa-fw fa-map-marker"></i> <%= user.rideHistory[i].area %></span>
+                </li>
+            </div>
+            <% } %>
+            <div>
+                <li><span><i class="fa fa-comment"></i> That's all for now! - Erkab</span>
+                </li>
+            </div>
+            <% } else { %>
+            <div>
+                <li><span><i class="fa fa-exclamation-circle"></i> No requests available. Check back in a few!</span>
+                </li>
+            </div>
+            <div>
+                <li><span><i class="fa fa-exclamation-circle"></i> Nothing yet <%=user.firstName%>. Refresh?</span>
+                </li>
+            </div>
+            <div>
+                <li><span><i class="fa fa-exclamation-circle"></i> How about you send a request to get the ball rolling!</span>
+                </li>
+            </div>
+            <% } %>
+        </ul>
     </div>
-
 
     <div id="map"></div>
     <div id="rideDiv">
         <a id="rideBtn" class="btn btn-lg btn-edited" href="/request"><i class="fa fa-fw fa-search"></i><span
-                    class="badge uppercase">find a ride</span></a>
+                    class="badge uppercase">Find a Ride</span></a>
     </div>
 </div>
 <!-- END OF CHANGEABLE VIEW -->
@@ -90,6 +108,17 @@
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACM-rbXIzhMtNX4ax1u7d-m70pQNDgVa4&callback=initMap">
 </script>
-
+<script src="/public/js/ticker.js"></script>
+<script>
+    !function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://weatherwidget.io/js/widget.min.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }(document, "script", "weatherwidget-io-js");
+</script>
 </body>
 </html>

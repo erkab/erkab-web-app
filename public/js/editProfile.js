@@ -29,6 +29,7 @@ $(document).ready(function () {
     })
 
     $("#cancelBtn").click(function () {
+        $("html, body").animate({scrollTop: $("#profileH3").offset().top - 86}, "slow");
         $(".profileInput").prop("readonly", true);
         $("#save-cancel-btn-group").hide();
         $("#editBtn").show();

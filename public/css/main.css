@@ -510,7 +510,7 @@ select {
     background: #f7f7f7;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-    border-radius: 5px;
+    border-radius: 15px;
 }
 
 .ss-custom-select {
@@ -703,6 +703,7 @@ input[type="button"].button-primary {
     background-color: #393753;
     border-color: #4e4c6d;
     color: #FFFFFF;
+    border-radius: 15px;
 }
 
 .button.button-primary:hover,
@@ -982,6 +983,7 @@ h1.intro-header::before {
     width: 100%;
     height: 72px;
     background-color: #00d0be;
+    background: linear-gradient(#00a1c5, #05e4e0);
     position: fixed;
     left: 50%;
     -webkit-transform: translateX(-50%);
@@ -989,7 +991,7 @@ h1.intro-header::before {
     transform: translateX(-50%);
     z-index: 501;
     top: 0 !important;
-    box-shadow: 0px 1px 2px 0px rgb(0, 132, 120);
+    box-shadow: 0px 1px 2px 0px rgb(0, 0, 0);
 }
 
 /* -------------------------------------------------------------------
@@ -1195,8 +1197,9 @@ h1.intro-header::before {
         right: auto;
         left: 0;
         background-color: #00d0be;
+        background: linear-gradient(#00a1c5, #05e4e0);
         padding: 80px 40px 40px;
-        box-shadow: 0px 1px 50px 0px rgb(57, 56, 83)
+        box-shadow: 0px 1px 50px 0px rgb(0, 0, 0)
     }
 
     #header-nav-wrap .header-main-nav {
@@ -1210,7 +1213,7 @@ h1.intro-header::before {
         display: block;
         margin: 0;
         padding: 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.20);
     }
 
     #header-nav-wrap .header-main-nav li a {

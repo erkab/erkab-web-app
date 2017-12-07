@@ -70,7 +70,7 @@
 
     <div class="row">
         <div class="col-12">
-            <h3 class="main-title uppercase text-center"><i class="fa fa-line-chart"></i> Your Stats</h3>
+            <h3 class="main-title uppercase text-center"><i class="fa fa-line-chart"></i> Stats</h3>
             <hr class="edit-profile-hr">
         </div>
 
@@ -80,7 +80,7 @@
                         class="badge spaced-letters uppercase">Saved</span></h4>
         </div>
         <div class="col-md-4 text-center col-4 col-sm-4 col-lg-4 col-xl-4 align-self-stretch">
-            <h1 id="stats" class="text-center display-3 counter" data-count="11">0</h1>
+            <h1 id="stats" class="text-center display-3 counter" data-count="<%= user.rideHistory.length %>">0</h1>
             <h4 class="text-center text-erkab"><i class="fa fa-car"></i><span
                         class="badge spaced-letters uppercase">Rides</span></h4>
         </div>
@@ -96,10 +96,10 @@
 
     <div class="row">
 
-        <div class="col-xs-12 col-sm-8 col-sm-push-4">
+        <div class="col-xs-12 col-md-8 col-md-push-4">
 
             <div class="sticky-div">
-                <h3 class="main-title uppercase text-center"><i class="fa fa-suitcase"></i> Your Trips</h3>
+                <h3 class="main-title uppercase text-center"><i class="fa fa-suitcase"></i> Trips</h3>
                 <hr class="edit-profile-hr">
             </div>
 
@@ -115,14 +115,14 @@
                 </thead>
                 <tbody class="text-center">
                 <% if(person.rideHistory.length > 0) {
-                for(var i = 0; i < person.rideHistory.length; i++) { %>
+                for(var i = 0; i < user.rideHistory.length; i++) { %>
                 <tr class='clickable-row' data-toggle="modal" data-target="#myModal" data-backdrop="true"
                     style="cursor:pointer">
                     <th scope="row" class="text-center"><%= i + 1 %></th>
-                    <td class="text-center"><%= person.rideHistory[i].userType %></td>
-                    <td class="text-center"><%= person.rideHistory[i].area %></td>
-                    <td class="text-center"><%= person.rideHistory[i].date %></td>
-                    <td class="text-center"><%= person.rideHistory[i].time %></td>
+                    <td class="text-center"><%= user.rideHistory[i].userType %></td>
+                    <td class="text-center"><%= user.rideHistory[i].area %></td>
+                    <td class="text-center"><%= user.rideHistory[i].date %></td>
+                    <td class="text-center"><%= user.rideHistory[i].time %></td>
                 </tr>
                 <% } %>
                 <% } else { %>
@@ -134,7 +134,7 @@
         </div>
 
         <!-- edit form column -->
-        <div class="col-xs-12 col-sm-4 col-sm-pull-8 text-center edit-profile-col">
+        <div class="col-xs-12 col-md-4 col-md-pull-8 text-center edit-profile-col">
             <div class="sticky-div edit-profile-sticky-div">
                 <h3 id="profileH3" class="main-title uppercase text-white"><i class="fa fa-user-circle-o"></i> Profile
                 </h3>
