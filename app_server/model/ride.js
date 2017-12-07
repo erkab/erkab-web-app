@@ -14,15 +14,10 @@ const rideRequestSchema = new Schema({
 });
 
 
-var  pendingRide =  mongoose.model('pendingRide', rideRequestSchema);
-
-rideRequestSchema.methods.addRide = function(ride) {
+rideRequestSchema.statics.addRide = function(ride) {
     new pendingRide(ride).save();
 };
 
+var pendingRide =  mongoose.model('pendingRide', rideRequestSchema);
 
 module.exports = pendingRide;
-
-
-
-

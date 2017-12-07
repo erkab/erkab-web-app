@@ -22,11 +22,8 @@ userSchema.methods.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
 };
 
-userSchema.methods.addMatch = function (requestA, requestB) {
+userSchema.statics.addMatch = function (requestA, requestB) {
 
 };
 
 module.exports = mongoose.model('User', userSchema);
-
-
-

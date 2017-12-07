@@ -1,13 +1,10 @@
-const User = require('../model/user');
 const matcher = require('../../lib/matcher');
-
 
 function receivedRequest(req, res) {
     var userType = "Rider";
     if(req.body.userType !== "Rider") {
         userType = "Driver";
     }
-
     var ride = {
         userType: userType,
         area: req.body.area,
@@ -19,20 +16,15 @@ function receivedRequest(req, res) {
         gender: req.user.gender,
         genderPreference: req.body.driverPref
     };
-
-    matcher.matchQuery(req, function () {
-
+    matcher.matchQuery(ride, function (result) {
+        console.log("Match Finished");
+        if(result) {
+            res.redirect('/profile');
+        } else {
+            res.redirect('/request');
+        }
     });
-
-    // User.findByIdAndUpdate(
-    //     req.user._id,
-    //     {$push: {rideHistory: ride}},
-    //     {safe: true, upsert: true},
-    //     function (err, model) {
-    //         console.log(err);
-    //     }
-    // );
-    res.redirect('/profile');
+    //res.redirect('/profile');
 }
 
 module.exports = {
