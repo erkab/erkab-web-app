@@ -14,6 +14,7 @@ module.exports = {
                 done(err, user);
             });
         });
+
         passport.use('local-signup', new LocalStrategy({
                 usernameField: 'email',
                 passwordField: 'password',
@@ -48,15 +49,16 @@ module.exports = {
             }));
         passport.use('local-login', new LocalStrategy({
                 // by default, local strategy uses username and password, we will override with email
-                usernameField : 'email',
-                passwordField : 'password',
-                passReqToCallback : true // allows us to pass back the entire request to the callback
+                usernameField: 'email',
+                passwordField: 'password',
+                passReqToCallback: true // allows us to pass back the entire request to the callback
             },
-            function(req, email, password, done) { // callback with email and password from our form
+            function (req, email, password, done) { // callback with email and password from our form
+
 
                 // find a user whose email is the same as the forms email
                 // we are checking to see if the user trying to login already exists
-                User.findOne({ 'email' :  email }, function(err, user) {
+                User.findOne({'email': email}, function (err, user) {
                     // if there are any errors, return the error before anything else
                     if (err)
                         return done(err);
