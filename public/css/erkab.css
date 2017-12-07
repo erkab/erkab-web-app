@@ -7649,6 +7649,20 @@ body > * {
     width: 220px;
 }
 
+#confirmPassBtn {
+    font-family: "montserrat-regular", sans-serif;
+    width: 80%;
+}
+
+#cancelPassBtn {
+    width: 20%;
+    border-radius: 2px;
+}
+
+#changePass-btn-group {
+    width: 220px;
+}
+
 .main-title {
     letter-spacing: 0.2rem;
 }
@@ -7680,6 +7694,11 @@ body > * {
     background-color: rgba(255, 255, 255, 0.02) !important;
     color: white !important;
     text-align: center !important;
+}
+
+#changePassLink {
+    color: #05e4e0;
+    margin-top: 10px;
 }
 
 .close {

@@ -114,7 +114,7 @@
                 </tr>
                 </thead>
                 <tbody class="text-center">
-                <% if(person.rideHistory.length > 0) {
+                <% if(user.rideHistory.length > 0) {
                 for(var i = 0; i < user.rideHistory.length; i++) { %>
                 <tr class='clickable-row' data-toggle="modal" data-target="#myModal" data-backdrop="true"
                     style="cursor:pointer">
@@ -141,57 +141,84 @@
                 <hr class="edit-profile-hr">
             </div>
             <form action="/profile" method="post">
-                <div id="nameField">
-                    <label id="firstName" class="text-white uppercase">First Name</label><br>
-                    <input name="firstName" type="text" class="input-margin-auto profileInput"
-                           value="<%= user.firstName %>">
+                <div id="mainForm">
+                    <div id="nameField">
+                        <label id="firstName" class="text-white uppercase">First Name</label><br>
+                        <input name="firstName" type="text" class="input-margin-auto profileInput"
+                               value="<%= user.firstName %>">
+                        <br>
+                        <label class="text-white uppercase">Last Name</label><br>
+                        <input name="lastName" type="text" class="input-margin-auto profileInput"
+                               value="<%= user.lastName %>">
+                        <br>
+                    </div>
+                    <div id="fullNameField">
+                        <label id="fullName" class="text-white uppercase">Name</label><br>
+                        <input name="fullName" type="text" class="input-margin-auto profileInput"
+                               value="<%= user.firstName %> <%= user.lastName %>">
+                        <br>
+                    </div>
+                    <label class="text-white uppercase">Mobile Number</label><br>
+                    <!-- Should send verification message. -->
+                    <input name="mobileNum" type="tel" class="input-margin-auto profileInput"
+                           value="<%= user.mobileNum %>">
                     <br>
-                    <label class="text-white uppercase">Last Name</label><br>
-                    <input name="lastName" type="text" class="input-margin-auto profileInput"
-                           value="<%= user.lastName %>">
-                    <br>
-                </div>
-                <div id="fullNameField">
-                    <label id="fullName" class="text-white uppercase">Name</label><br>
-                    <input name="fullName" type="text" class="input-margin-auto profileInput"
-                           value="<%= user.firstName %> <%= user.lastName %>">
-                    <br>
-                </div>
-                <label class="text-white uppercase">Mobile Number</label><br>
-                <!-- Should send verification message. -->
-                <input name="mobileNum" type="tel" class="input-margin-auto profileInput"
-                       value="<%= user.mobileNum %>">
-                <br>
 
-                <!-- Email uneditable -->
-                <label class="text-white uppercase">Email</label><br>
-                <input name="email" type="email" class="input-margin-auto profileInput" value="<%= user.email %>">
-                <br>
+                    <!-- Email uneditable -->
+                    <label class="text-white uppercase">Email</label><br>
+                    <input name="email" type="email" class="input-margin-auto profileInput" value="<%= user.email %>">
+                    <br>
 
-                <!-- College ID uneditable -->
-                <label class="text-white uppercase">College ID</label><br>
-                <input name="collegeId" type="number" class="input-margin-auto readonly-input"
-                       value="<%= user.collegeId %>" readonly>
-                <br>
+                    <!-- College ID uneditable -->
+                    <label class="text-white uppercase">College ID</label><br>
+                    <input name="collegeId" type="number" class="input-margin-auto readonly-input"
+                           value="<%= user.collegeId %>" readonly>
+                    <br>
+
+                    <div id="save-cancel-btn-group" class="btn-group" role="group">
+                        <button id="saveBtn" type="submit" class="btn btn-outline-warning uppercase">Save Changes
+                        </button>
+                        <button id="cancelBtn" type="reset" class="btn btn-outline-danger uppercase"><i
+                                    class="fa fa-ban"></i></button>
+                    </div>
+                    <button id="editBtn" type="button" class="btn btn-outline-warning uppercase"><i
+                                class="fa fa-pencil-square-o"></i> Edit
+                    </button>
+                    <br>
+                    <a href="#"><h5 id="changePassLink" class="uppercase">Change Password?</h5></a>
+                </div>
+
                 <!-- Should validate old and new password to see if they match onblur/onsubmit -->
                 <div id="passwordField">
-                    <label class="text-white te">.....</label><br>
                     <label id="oldPasswordLbl" class="text-white uppercase">Old Password</label><br>
                     <input id="oldPasswordInput" name="oldPassword" type="password" class="input-margin-auto">
                     <br>
                     <label id="newPasswordLbl" class="text-white uppercase">New Password</label><br>
                     <input id="newPasswordInput" name="newPassword" type="password" class="input-margin-auto">
                     <br>
+                    <label id="newPasswordConfirmLbl" class="text-white uppercase">Re-enter Password</label><br>
+                    <input id="newPasswordConfirmInput" name="newPassword" type="password" class="input-margin-auto">
+                    <br>
                 </div>
-
-                <div id="save-cancel-btn-group" class="btn-group" role="group">
-                    <button id="saveBtn" type="submit" class="btn btn-outline-warning uppercase">Save Changes</button>
-                    <button id="cancelBtn" type="reset" class="btn btn-outline-danger uppercase"><i
+                <div id="changePass-btn-group" class="btn-group" role="group">
+                    <button id="confirmPassBtn" type="submit" class="btn btn-outline-warning uppercase">Change
+                        Password
+                    </button>
+                    <button id="cancelPassBtn" type="reset" class="btn btn-outline-danger uppercase"><i
                                 class="fa fa-ban"></i></button>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
                 </div>
-                <button id="editBtn" type="button" class="btn btn-outline-warning uppercase"><i
-                            class="fa fa-pencil-square-o"></i> Edit
-                </button>
+                <br>
+                <br>
+                <br>
+                <br>
             </form>
         </div>
     </div>
