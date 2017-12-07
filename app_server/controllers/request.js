@@ -1,10 +1,12 @@
 const matcher = require('../../lib/matcher');
 
 function receivedRequest(req, res) {
-    var userType = "Rider";
+    var userType = 'Rider';
     if(req.body.userType !== "Rider") {
-        userType = "Driver";
+        userType = 'Driver';
     }
+
+
     var ride = {
         userType: userType,
         area: req.body.area,
