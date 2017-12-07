@@ -6,6 +6,8 @@ function receivedRequest(req, res) {
         userType = 'Driver';
     }
 
+    console.log(req.body);
+
 
     var ride = {
         userType: userType,

@@ -154,7 +154,7 @@
         clearMarkers();
         var area = $('#areaPicker').val();
         window.locationsData[area].features.forEach(function (location, index) {
-            $('#pointPicker').append('<option value =' + location.properties.name + '>' + location.properties.name + '</option>');
+            $('#pointPicker').append('<option value =""' + location.properties.name  + '"">' + location.properties.name + '</option>');
             addMarker(location.geometry.coordinates);
         });
         $('#pointPicker').selectpicker('refresh');
@@ -176,7 +176,7 @@
         $.getJSON("public/ajax/locations.json", function (data) {
             window.locationsData = data;
             $.each(data.areas, function (index, value) {
-                $('#areaPicker').append('<option value =' + value + '>' + value + '</option>');
+                $('#areaPicker').append('<option value =""' + value + '"">' + value + '</option>');
                 $('#areaPicker').selectpicker('refresh');
             })
         });
