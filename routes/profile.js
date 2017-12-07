@@ -17,7 +17,6 @@ router.post('/', checkLoggedIn, function (req, res) {
         lastName: req.body.lastName,
         mobileNum: req.body.mobileNum,
         email: req.body.email
-
     }, function (err, result) {
         if (err)
             return console.log(err);

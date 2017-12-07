@@ -22,7 +22,7 @@ userSchema.methods.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
 };
 
-userSchema.methods.notifyMatch = function (ride, role) {
+userSchema.methods.addMatch = function (requestA, requestB) {
 
 };
 

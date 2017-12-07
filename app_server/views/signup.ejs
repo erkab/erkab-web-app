@@ -14,6 +14,10 @@
             padding-top: 80px;
         }
     </style>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.3.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/additional-methods.min.js"></script>
+    <!--<script src="/public/js/signup/validation.js"></script>-->
 </head>
 
 <body>
@@ -30,7 +34,7 @@
         <% } %>
 
         <!-- LOGIN FORM -->
-        <form action="/signup" method="post">
+        <form id = "register-form" action="/signup" method="post">
             <div class="form-group">
                 <label>Email</label>
                 <input type="text" class="form-control" name="email">
