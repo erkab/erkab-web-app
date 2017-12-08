@@ -1,8 +1,12 @@
 var router = require('express').Router();
+const pendingRide = require('../app_server/model/ride');
+
 
 router.get('/', checkLoggedIn, function (req, res) {
-    res.render('dashboard', {
-        user: req.user // get the user out of session and pass to template
+    pendingRide.find({}, function (err, pendingRides) {
+        if (err)
+            return console.log(err);
+        res.render('dashboard', {user: req.user, pendingRides: pendingRides});
     });
 });
 

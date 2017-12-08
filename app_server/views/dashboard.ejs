@@ -59,13 +59,13 @@
             <p class="uppercase">Latest Requests</p>
         </div>
         <ul>
-            <% if(user.rideHistory.length > 0) {
-            for(var i = 0; i < user.rideHistory.length; i++) { %>
+            <% if(pendingRides.length > 0) {
+            for(var i = 0; i < pendingRides.length; i++) { %>
             <div>
-                <li><span><span class="badge badge-pill badge-warning uppercase d-inline"><%= user.rideHistory[i].userType %></span> <i
-                                class="fa fa-fw fa-calendar"></i> <%= user.rideHistory[i].date %> - <i
-                                class="fa fa-fw fa-clock-o"></i> <%= user.rideHistory[i].time %> - <i
-                                class="fa fa-fw fa-map-marker"></i> <%= user.rideHistory[i].area %></span>
+                <li><span><span class="badge badge-pill badge-warning uppercase d-inline"><%= pendingRides[i].userType %></span> <i
+                                class="fa fa-fw fa-calendar"></i> <%= pendingRides[i].date %> - <i
+                                class="fa fa-fw fa-clock-o"></i> <%= pendingRides[i].time %> - <i
+                                class="fa fa-fw fa-map-marker"></i> <%= pendingRides[i].area %></span>
                 </li>
             </div>
             <% } %>

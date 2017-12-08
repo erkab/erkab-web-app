@@ -6,16 +6,18 @@ $(document).ready(function () {
     $("#nameField").hide();
 
     $("#editBtn").click(function () {
+        $("html, body").animate({scrollTop: $("#profileH3").offset().top - 86}, "slow");
         $("#editBtn").hide();
         $("#save-cancel-btn-group").show();
         $("#profileH3").html("<i class=\"fa fa-pencil-square-o\"></i> Edit Profile");
-        $(".profileInput").removeClass("readonly-input");
-        $("#nameField").show();
         $("#fullNameField").hide();
+        $("#nameField").show();
+        $(".profileInput").prop("readonly", false).removeClass("readonly-input");
         $("#changePassLink").hide();
     });
 
     $("#saveBtn").click(function () {
+        $("html, body").animate({scrollTop: $("#profileH3").offset().top - 86}, "slow");
         $(".profileInput").prop("readonly", true).addClass("readonly-input");
         $("#save-cancel-btn-group").hide();
         $("#editBtn").show();

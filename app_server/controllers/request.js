@@ -8,7 +8,6 @@ function receivedRequest(req, res) {
 
     console.log(req.body);
 
-
     var ride = {
         userType: userType,
         area: req.body.area,
@@ -21,11 +20,11 @@ function receivedRequest(req, res) {
         genderPreference: req.body.driverPref
     };
     matcher.matchQuery(ride, function (result) {
-        console.log("Match Finished");
+        console.log("Match found!");
         if(result) {
             res.redirect('/profile');
         } else {
-            res.redirect('/request');
+            res.redirect('/dashboard');
         }
     });
     //res.redirect('/profile');

@@ -1,12 +1,7 @@
 var router = require('express').Router();
-var mongoose = require('mongoose');
-mongoose.connect('MONGODB_URI');
 var User = require('../app_server/model/user');
 
 router.get('/', checkLoggedIn, function (req, res) {
-    // User.findById(req.user._id, function (err, person) {
-    //     if (err) return console.log(err);
-    // });
     res.render('profile', {user: req.user});
 });
 
