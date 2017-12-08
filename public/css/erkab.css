@@ -597,7 +597,7 @@ fieldset[disabled] a.btn {
 
 .btn-edited:active, .btn-edited.active,
 .show > .btn-success.dropdown-toggle {
-    background-color: #00af9f;
+    background-color: #03bfbe;
     background-image: none;
     border-color: #009686;
 }
@@ -7567,7 +7567,7 @@ body > * {
 
 #loadingLbl {
     font-size: 500% !important;
-    color: #00d0be !important;
+    color: rgba(255, 255, 255, 1) !important;
     text-align: center !important;
     position: absolute !important;
     top: 50% !important;
@@ -7694,6 +7694,10 @@ body > * {
     background-color: rgba(255, 255, 255, 0.02) !important;
     color: white !important;
     text-align: center !important;
+}
+
+.latest-requests-ticker {
+    white-space:nowrap !important;
 }
 
 #changePassLink {

@@ -405,55 +405,55 @@ td:last-child {
  * pace.js styles - center simple  - (_document-setup.scss)
  * ------------------------------------------------------------------- */
 
-.pace {
-    -webkit-pointer-events: none;
-    pointer-events: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    z-index: 2000;
-    position: fixed;
-    margin: auto;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 5px;
-    width: 150px;
-    background: #dedede;
-    overflow: hidden;
-}
+/*.pace {*/
+    /*-webkit-pointer-events: none;*/
+    /*pointer-events: none;*/
+    /*-webkit-user-select: none;*/
+    /*-moz-user-select: none;*/
+    /*user-select: none;*/
+    /*z-index: 2000;*/
+    /*position: fixed;*/
+    /*margin: auto;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*right: 0;*/
+    /*bottom: 0;*/
+    /*height: 5px;*/
+    /*width: 150px;*/
+    /*background: #dedede;*/
+    /*overflow: hidden;*/
+/*}*/
 
-.pace .pace-progress {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    -o-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    max-width: 150px;
-    position: fixed;
-    z-index: 2000;
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 100%;
-    height: 100%;
-    width: 100%;
-    background: #39b54a;
-}
+/*.pace .pace-progress {*/
+    /*-webkit-box-sizing: border-box;*/
+    /*-moz-box-sizing: border-box;*/
+    /*-ms-box-sizing: border-box;*/
+    /*-o-box-sizing: border-box;*/
+    /*box-sizing: border-box;*/
+    /*-webkit-transform: translate3d(0, 0, 0);*/
+    /*-moz-transform: translate3d(0, 0, 0);*/
+    /*-ms-transform: translate3d(0, 0, 0);*/
+    /*-o-transform: translate3d(0, 0, 0);*/
+    /*transform: translate3d(0, 0, 0);*/
+    /*max-width: 150px;*/
+    /*position: fixed;*/
+    /*z-index: 2000;*/
+    /*display: block;*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*right: 100%;*/
+    /*height: 100%;*/
+    /*width: 100%;*/
+    /*background: #39b54a;*/
+/*}*/
 
-.pace.pace-inactive {
-    display: none;
-}
+/*.pace.pace-inactive {*/
+    /*display: none;*/
+/*}*/
 
-.oldie .pace {
-    display: none;
-}
+/*.oldie .pace {*/
+    /*display: none;*/
+/*}*/
 
 /* ===================================================================
  *  04. preloader - (_preloader-blank.scss)
@@ -466,7 +466,8 @@ td:last-child {
     left: 0;
     right: 0;
     bottom: 0;
-    background: #393753;
+    /*background: #393753;*/
+    background: linear-gradient(#00a1c5, #05e4e0);
     z-index: 800;
     height: 100%;
     width: 100%;

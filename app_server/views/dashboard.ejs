@@ -10,6 +10,10 @@
 
 <head>
 
+    <!-- preloader -->
+    <link rel="stylesheet" href="/public/css/themes/white/pace-theme-flash.css">
+    <script src="/public/js/pace.min.js"></script>
+
     <!--- basic page needs
    ================================================== -->
     <meta charset="utf-8">
@@ -63,26 +67,27 @@
             for (var i = 0; i < pendingRides.length; i++) {
                 if (pendingRides[i].userId == user.id)
                     count++;
-                console.log("COUNT: " + count + " rides: " + pendingRides.length);
             }
             if(count == pendingRides.length) { %>
             <div>
-                <li><span><i class="fa fa-exclamation-circle"></i> No requests available. Check back in a few!</span>
+                <li><span class="latest-requests-ticker"><i class="fa fa-exclamation-circle"></i> No requests available. Check back in a few!</span>
                 </li>
             </div>
             <div>
-                <li><span><i class="fa fa-exclamation-circle"></i> Nothing yet <%= user.firstName %>. Refresh?</span>
+                <li><span class="latest-requests-ticker"><i
+                                class="fa fa-exclamation-circle"></i> Nothing yet <%= user.firstName %>. Refresh?</span>
                 </li>
             </div>
             <div>
-                <li><span><i class="fa fa-exclamation-circle"></i> How about you send a request to get the ball rolling!</span>
+                <li><span class="latest-requests-ticker"><i class="fa fa-exclamation-circle"></i> How about you send a request to get the ball rolling!</span>
                 </li>
             </div>
             <% } else { %>
             <% for(var i = 0; i < pendingRides.length; i++) { %>
             <% if(pendingRides[i].userId != user.id) { %>
             <div>
-                <li><span><span class="badge badge-pill badge-warning uppercase d-inline"><%= pendingRides[i].userType %></span> <i
+                <li><span class="latest-requests-ticker"><span
+                                class="latest-requests-ticker badge badge-pill badge-warning uppercase d-inline"><%= pendingRides[i].userType %></span> <i
                                 class="fa fa-fw fa-calendar"></i> <%= pendingRides[i].date %> - <i
                                 class="fa fa-fw fa-clock-o"></i> <%= pendingRides[i].time %> - <i
                                 class="fa fa-fw fa-map-marker"></i> <%= pendingRides[i].area %></span>
@@ -91,7 +96,8 @@
             <% } %>
             <% } %>
             <div>
-                <li><span><i class="fa fa-comment"></i> That's all for now! - Erkab</span>
+                <li><span class="latest-requests-ticker"><i
+                                class="fa fa-comment"></i> That's all for now! - Erkab</span>
                 </li>
             </div>
             <% } %>
