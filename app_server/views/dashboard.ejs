@@ -13,7 +13,7 @@
     <!--- basic page needs
    ================================================== -->
     <meta charset="utf-8">
-    <title>Erkab</title>
+    <title>Dashboard - Erkab</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -47,33 +47,25 @@
 <!-- START OF CHANGEABLE VIEW -->
 <div id="changeableView">
 
+    <!-- Weather widget -->
     <a class="weatherwidget-io" href="https://forecast7.com/en/30d7629d70/alexandria-governorate/"
        data-label_1="ALEXANDRIA" data-label_2="WEATHER" data-font="Ubuntu" data-icons="Climacons Animated"
        data-mode="Current" data-days="3" data-theme="pure" data-textColor="#393953" style="height: 300px !important;">ALEXANDRIA
         WEATHER</a>
 
+    <!-- Latest Requests ticker -->
     <div class="ticker-container">
         <div class="ticker-caption">
-
-            <!-- The info displayed here acts as a placeholder for the ride request info. -->
             <p class="uppercase">Latest Requests</p>
         </div>
         <ul>
-            <% if(pendingRides.length > 0) {
-            for(var i = 0; i < pendingRides.length; i++) { %>
-            <div>
-                <li><span><span class="badge badge-pill badge-warning uppercase d-inline"><%= pendingRides[i].userType %></span> <i
-                                class="fa fa-fw fa-calendar"></i> <%= pendingRides[i].date %> - <i
-                                class="fa fa-fw fa-clock-o"></i> <%= pendingRides[i].time %> - <i
-                                class="fa fa-fw fa-map-marker"></i> <%= pendingRides[i].area %></span>
-                </li>
-            </div>
-            <% } %>
-            <div>
-                <li><span><i class="fa fa-comment"></i> That's all for now! - Erkab</span>
-                </li>
-            </div>
-            <% } else { %>
+            <% var count = 0;
+            for (var i = 0; i < pendingRides.length; i++) {
+                if (pendingRides[i].userId == user.id)
+                    count++;
+                console.log("COUNT: " + count + " rides: " + pendingRides.length);
+            }
+            if(count == pendingRides.length) { %>
             <div>
                 <li><span><i class="fa fa-exclamation-circle"></i> No requests available. Check back in a few!</span>
                 </li>
@@ -86,10 +78,27 @@
                 <li><span><i class="fa fa-exclamation-circle"></i> How about you send a request to get the ball rolling!</span>
                 </li>
             </div>
+            <% } else { %>
+            <% for(var i = 0; i < pendingRides.length; i++) { %>
+            <% if(pendingRides[i].userId != user.id) { %>
+            <div>
+                <li><span><span class="badge badge-pill badge-warning uppercase d-inline"><%= pendingRides[i].userType %></span> <i
+                                class="fa fa-fw fa-calendar"></i> <%= pendingRides[i].date %> - <i
+                                class="fa fa-fw fa-clock-o"></i> <%= pendingRides[i].time %> - <i
+                                class="fa fa-fw fa-map-marker"></i> <%= pendingRides[i].area %></span>
+                </li>
+            </div>
+            <% } %>
+            <% } %>
+            <div>
+                <li><span><i class="fa fa-comment"></i> That's all for now! - Erkab</span>
+                </li>
+            </div>
             <% } %>
         </ul>
     </div>
 
+    <!-- Google Map (User Location) -->
     <div id="map"></div>
     <div id="rideDiv">
         <a id="rideBtn" class="btn btn-lg btn-edited" href="/request"><i class="fa fa-fw fa-search"></i><span
