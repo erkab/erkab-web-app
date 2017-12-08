@@ -1,13 +1,13 @@
 const matcher = require('../../lib/matcher');
 
 function receivedRequest(req, res) {
+
     var userType = 'Rider';
     if(req.body.userType !== "Rider") {
         userType = 'Driver';
     }
 
-    console.log(req.body);
-
+    //console.log(req.body);
 
     var ride = {
         userType: userType,
@@ -20,6 +20,7 @@ function receivedRequest(req, res) {
         gender: req.user.gender,
         genderPreference: req.body.driverPref
     };
+
     matcher.matchQuery(ride, function (result) {
         console.log("Match Finished");
         if(result) {
