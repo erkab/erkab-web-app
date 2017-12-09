@@ -2,10 +2,8 @@ var router = require('express').Router();
 var passport = require('passport');
 
 router.get('/', function(req, res) {
-    console.log(req);
-    res.render('signup', { message: req.flash('signupMessage')});
+    res.render('signup', {message: req.flash('signupMessage')});
 });
-
 
 // process the signup form
 router.post('/', passport.authenticate('local-signup', {
@@ -14,9 +12,4 @@ router.post('/', passport.authenticate('local-signup', {
     failureFlash : true // allow flash messages
 }));
 
-
-
 module.exports = router;
-
-
-
