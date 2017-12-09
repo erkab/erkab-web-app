@@ -16,6 +16,10 @@ function updateUserInfo(req, res) {
 
 function getRideHistory(req, res) {
     var rideHistory = [];
+    if(!req.user.rides.length) {
+        res.json(JSON.stringify(rideHistory));
+        return;
+    }
     req.user.rides.forEach(function (rideId) {
         Ride.findOne ({_id: rideId}, function (err, ride) {
            rideHistory.push ({
@@ -29,7 +33,7 @@ function getRideHistory(req, res) {
            }
         });
     });
-    res.json(JSON.stringify(rideHistory));
+
 }
 
 module.exports = {
