@@ -1,23 +1,34 @@
 const mongoose = require('mongoose');//.set('debug', true);
 const Schema = mongoose.Schema;
 
-const rideRequestSchema = new Schema({
-    userType: String,
+const rideSchema = new Schema({
     area: String,
-    points: [String],
+    meetingPoint: String,
     date: String,
     time: String,
-    userId: Schema.ObjectId,
-    gender: String,
-    genderPreference: String,
-    timeStamp: Date
+    riderId: Schema.ObjectId,
+    driverId: Schema.ObjectId
 });
 
-
-rideRequestSchema.statics.addRide = function(ride) {
-    new pendingRide(ride).save();
+rideSchema.statics.addRide = function(riderRequest, driverRequest, meetingPoint, callback) {
+    if(riderRequest.userType === 'Driver') {
+        var temp = riderRequest;
+        riderRequest = driverRequest;
+        driverRequest = temp;
+    }
+    var ride = new Ride({
+        area : riderRequest.area,
+        meetingPoint: meetingPoint,
+        date: riderRequest.date,
+        time: riderRequest.time,
+        riderId: riderRequest.userId,
+        driverId: driverRequest.driverId
+    });
+    ride.save(function (err, ride) {
+        callback(riderRequest.userId, ride._id);
+        callback(driverRequest.userId, ride._id);
+    });
 };
 
-var pendingRide =  mongoose.model('pendingRide', rideRequestSchema);
-
-module.exports = pendingRide;
+var Ride = mongoose.model('Ride', rideSchema);
+module.exports =  mongoose.model('Ride', rideSchema);
