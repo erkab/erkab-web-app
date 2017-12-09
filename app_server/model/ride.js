@@ -22,7 +22,7 @@ rideSchema.statics.addRide = function(riderRequest, driverRequest, meetingPoint,
         date: riderRequest.date,
         time: riderRequest.time,
         riderId: riderRequest.userId,
-        driverId: driverRequest.driverId
+        driverId: driverRequest.userId
     });
     ride.save(function (err, ride) {
         callback(riderRequest.userId, ride._id);

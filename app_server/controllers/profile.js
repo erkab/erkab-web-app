@@ -23,7 +23,7 @@ function getRideHistory(req, res) {
     req.user.rides.forEach(function (rideId) {
         Ride.findOne ({_id: rideId}, function (err, ride) {
            rideHistory.push ({
-               userType: req.user._id === ride.riderId ? "Rider" : "Driver",
+               userType: req.user._id.equals(ride.riderId) ? "Rider" : "Driver",
                meetingPoint: ride.area + ", " + ride.meetingPoint,
                date: ride.date,
                time: ride.time
