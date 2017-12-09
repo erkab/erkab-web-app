@@ -2,48 +2,83 @@
 <!doctype html>
 <html>
 <head>
-	<title>Node Authentication</title>
-	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
-	<style>
-		body 		{ padding-top:80px; }
-	</style>
+
+    <!-- preloader -->
+    <script src="/public/js/pace.min.js"></script>
+
+    <!--- basic page needs
+   ================================================== -->
+    <meta charset="utf-8">
+    <title>Erkab - Login</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="/public/css/base.css">
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
+    <link rel="stylesheet" href="/public/css/main.css">
+    <link rel="stylesheet" href="/public/css/erkab.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="/public/js/modernizr.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="icon" type="image/png" href="/public/images/favicon-32x32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="/public/images/favicon-16x16.png" sizes="16x16"/>
 </head>
+
 <body>
-<div class="container">
 
-<div class="col-sm-6 col-sm-offset-3">
+<div class="container-fluid" style="padding-top: 30px">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <h1 class="text-center uppercase main-title title-margin" style="font-size: 350%; margin-bottom: 30px"><i
+                        class="fa fa-car"></i> Erkab</h1>
+            <h1 class="text-center uppercase main-title title-margin"><i class="fa fa-sign-in"></i> Login</h1>
+            <!-- LOGIN FORM -->
+            <form id="login-form" action="/login" method="post">
+                <label class="uppercase">Email</label>
+                <input type="text" class="input-margin-auto" name="email" placeholder="Email">
+                <!-- show any messages that come back with authentication -->
+                <% if (message.length > 0) { %>
+                <h5><i class="fa fa-warning"></i> <%= message %></h5>
+                <% } %>
+                <br>
+                <label class="uppercase">Password</label>
+                <input type="password" class="input-margin-auto" name="password" placeholder="Password"><br>
 
-	<h1><span class="fa fa-sign-in"></span> Login</h1>
-
-	<!-- show any messages that come back with authentication -->
-	<% if (message.length > 0) { %>
-		<div class="alert alert-danger"><%= message %></div>
-	<% } %>
-
-	<!-- LOGIN FORM -->
-	<form action="/login" method="post">
-		<div class="form-group">
-			<label>Email</label>
-			<input type="text" class="form-control" name="email">
-		</div>
-		<div class="form-group">
-			<label>Password</label>
-			<input type="password" class="form-control" name="password">
-		</div>
-
-		<button type="submit" class="btn btn-warning btn-lg">Login</button>
-	</form>
-
-	<hr>
-
-	<p>Need an account? <a href="/signup">Signup</a></p>
-	<p>Or go <a href="/">home</a>.</p>
-
+                <button id="loginBtn" type="submit" class="btn btn-edited uppercase">Login</button>
+            </form>
+            <hr>
+            <p>Need an account? <a href="/signup">Signup</a>.</p>
+            <p>or go back <a href="/">home</a>.</p>
+        </div>
+    </div>
 </div>
 
-</div>
+<footer class="footer">
+    <div class="container">
+        <span class="text-muted">© Erkab 2017. All Rights Reserved.</span>
+    </div>
+</footer>
+
+<% include templates/preloader.ejs %>
+
+<script src="/public/js/jquery-2.1.3.min.js"></script>
+<script src="/public/js/main.js"></script>
+<script src="/public/js/jquery.js"></script>
+<script src="/public/js/bootstrap.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/additional-methods.min.js"></script>
+<script src="/public/js/login/validation.js"></script>
+
 </body>
 </html>

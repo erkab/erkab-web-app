@@ -2,7 +2,7 @@ const matcher = require('../../lib/matcher');
 
 function receivedRequest(req, res) {
     var userType = 'Rider';
-    if(req.body.userType !== "Rider") {
+    if (req.body.userType !== "Rider") {
         userType = 'Driver';
     }
 
@@ -21,13 +21,12 @@ function receivedRequest(req, res) {
     };
     matcher.matchQuery(ride, function (result) {
         console.log("Match found!");
-        if(result) {
+        if (result) {
             res.redirect('/profile');
         } else {
             res.redirect('/dashboard');
         }
     });
-    //res.redirect('/profile');
 }
 
 module.exports = {

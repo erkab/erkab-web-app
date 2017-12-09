@@ -43,8 +43,8 @@
 
     <!-- favicons
 	================================================== -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" href="/public/images/favicon-32x32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="/public/images/favicon-16x16.png" sizes="16x16"/>
 
 </head>
 
@@ -127,6 +127,7 @@
 <script>
     var $inputDate = $('#input_date').pickadate({
         formatSubmit: 'dd/mm/yyyy',
+        min: new Date(),
         hiddenName: true
     })
     picker = $inputDate.pickadate('picker');
@@ -135,6 +136,8 @@
     var $inputTime = $('#input_time').pickatime({
         formatSubmit: 'HH:i',
         hiddenName: true,
+        min: [6, 0],
+        max: [19, 0],
         interval: 15
     })
     picker = $inputTime.pickatime('picker');

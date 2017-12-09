@@ -3560,8 +3560,9 @@ select[multiple].form-group-lg .form-control {
 .help-block {
     display: block;
     margin-top: 5px;
-    margin-bottom: 10px;
-    color: #737373;
+    color: #e00000 !important;
+    letter-spacing: 0;
+    font-size: 1.3rem !important;
 }
 
 @media (min-width: 768px) {
