@@ -2,7 +2,7 @@ $(document).ready(function () {
     $.ajax({
         type: 'GET',
         url: '/profile/ride-history',
-        async: true,
+        async: false,
         dataType: 'json',
         success: function (rides) {
             rides = JSON.parse(rides);
@@ -55,4 +55,4 @@ function updateRideTable() {
     });
 }
 
-setInterval(updateRideTable, 60 * 1000);
+setInterval(updateRideTable, 30 * 1000);
