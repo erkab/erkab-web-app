@@ -38,6 +38,7 @@ $(document).ready(function () {
         $("#nameField").hide();
         $("#fullNameField").show();
         $("#changePassLink").show();
+        $('.help-block').hide();
     });
 
     $("#changePassLink").click(function () {
@@ -63,6 +64,7 @@ $(document).ready(function () {
         $("#mainForm").show();
         $("#passwordField").hide();
         $("#changePass-btn-group").hide();
+        $('.help-block').hide();
     })
 
 })
