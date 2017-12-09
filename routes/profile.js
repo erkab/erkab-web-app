@@ -1,5 +1,6 @@
 var router = require('express').Router();
 var User = require('../app_server/model/user');
+var ctrl = require('../app_server/controllers/profile');
 
 router.get('/', checkLoggedIn, function (req, res) {
     res.render('profile', {user: req.user});
@@ -7,16 +8,11 @@ router.get('/', checkLoggedIn, function (req, res) {
 
 //Should pass the new password in the hashing function before updating the database. (password: req.body.newPassword)
 router.post('/', checkLoggedIn, function (req, res) {
-    User.findByIdAndUpdate(req.user._id, {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        mobileNum: req.body.mobileNum,
-        email: req.body.email
-    }, function (err, result) {
-        if (err)
-            return console.log(err);
-        res.redirect('/profile');
-    });
+    ctrl.updateUserInfo(req, res);
+});
+
+router.post('/ride-history', function (req, res) {
+    ctrl.getRideHistory(req, res);
 });
 
 function checkLoggedIn(req, res, next) {

@@ -83,11 +83,14 @@
             <h4 class="text-center text-erkab"><i class="fa fa-usd"></i><span
                         class="badge spaced-letters uppercase">Saved</span></h4>
         </div>
+        <!--data-count="<%= user.rides == null ? 0 : user.rides.length %>"-->
         <div class="col-md-4 text-center col-4 col-sm-4 col-lg-4 col-xl-4 align-self-stretch">
-            <h1 id="stats" class="text-center display-3 counter" data-count="<%= user.rideHistory.length %>">0</h1>
+            <h1 id="rideCounter" class="text-center display-3 counter"
+            >0</h1>
             <h4 class="text-center text-erkab"><i class="fa fa-car"></i><span
                         class="badge spaced-letters uppercase">Rides</span></h4>
         </div>
+
         <div class="col-md-4 text-center col-sm-4 col-4 align-self-stretch col-lg-4 col-xl-4">
             <h1 id="stats" class="text-center display-3 counter" data-count="142">0</h1>
             <h4 class="text-center text-erkab"><i class="fa fa-exchange"></i><span
@@ -107,7 +110,7 @@
                 <hr class="edit-profile-hr">
             </div>
 
-            <table class="table table-hover text-center">
+            <table id="rideTable" class="table table-hover text-center">
                 <thead class="thead">
                 <tr>
                     <th>#</th>
@@ -118,21 +121,6 @@
                 </tr>
                 </thead>
                 <tbody class="text-center">
-                <% if(user.rideHistory.length > 0) {
-                for(var i = 0; i < user.rideHistory.length; i++) { %>
-                <tr class='clickable-row' data-toggle="modal" data-target="#myModal" data-backdrop="true"
-                    style="cursor:pointer">
-                    <th scope="row" class="text-center"><%= i + 1 %></th>
-                    <td class="text-center"><%= user.rideHistory[i].userType %></td>
-                    <td class="text-center"><%= user.rideHistory[i].area %></td>
-                    <td class="text-center"><%= user.rideHistory[i].date %></td>
-                    <td class="text-center"><%= user.rideHistory[i].time %></td>
-                </tr>
-                <% } %>
-                <% } else { %>
-                <td colspan="5" class="text-center"><i class="fa fa-exclamation-circle"></i> No ride data available.
-                </td>
-                <% } %>
                 </tbody>
             </table>
         </div>
@@ -239,6 +227,7 @@
 <script src="/public/js/bootstrap.min.js"></script>
 <script src="/public/js/counter.js"></script>
 <script src="/public/js/profile/editProfile.js"></script>
+<script  src="/public/js/profile/rideDataDisplay.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/additional-methods.min.js"></script>
 <script src="/public/js/profile/validation.js"></script>

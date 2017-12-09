@@ -10,20 +10,21 @@ const userSchema = new Schema({
     collegeId: String,
     mobileNum: String,
     gender: String,
-    rideHistory: [{userType: String, area: String, points: [String], date: String, time: String, driverPref: String}]
+    rides: [Schema.ObjectId]
 });
 
 userSchema.methods.generateHash = function(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
-
 userSchema.methods.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
 };
 
-userSchema.statics.addMatch = function (requestA, requestB) {
-
+userSchema.statics.addRideReference = function (userId, rideId) {
+    User.findOneAndUpdate({_id: userId}, {$push : {rides : rideId}}).exec();
 };
 
-module.exports = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema);
+
+module.exports = User;
