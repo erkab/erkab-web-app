@@ -1,8 +1,8 @@
 $(document).ready(function () {
     $.ajax({
-        type: 'GET',
+        type: 'POST',
         url: '/profile/ride-history',
-        async: false,
+        async: true,
         dataType: 'json',
         success: function (rides) {
             rides = JSON.parse(rides);
@@ -29,16 +29,16 @@ $(document).ready(function () {
 
 function updateRideTable() {
     $.ajax({
-        type: 'GET',
+        type: 'POST',
         url: '/profile/ride-history',
         async: true,
         dataType: 'json',
         success: function (rides) {
             var rowCount = $('#rideTable tr').length - 1;
-            if(!rowCount) {
+            rides = JSON.parse(rides);
+            if(!rowCount && rides.length) {
                 $("#rideTable td").remove();
             }
-            rides = JSON.parse(rides);
             $('#rideCounter').text(rides.length);
             rides.slice(rowCount, rides.length).forEach(function (ride, index) {
                 var html =
@@ -55,4 +55,4 @@ function updateRideTable() {
     });
 }
 
-setInterval(updateRideTable, 30 * 1000);
+setInterval(updateRideTable, 20 * 1000);
