@@ -29,6 +29,7 @@ function getRideHistory(req, res) {
            }
         });
     });
+    res.json(JSON.stringify(rideHistory));
 }
 
 module.exports = {
