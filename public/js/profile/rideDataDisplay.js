@@ -35,10 +35,10 @@ function updateRideTable() {
         dataType: 'json',
         success: function (rides) {
             var rowCount = $('#rideTable tr').length - 1;
-            if(!rowCount) {
+            rides = JSON.parse(rides);
+            if(!rowCount && rides.length) {
                 $("#rideTable td").remove();
             }
-            rides = JSON.parse(rides);
             $('#rideCounter').text(rides.length);
             rides.slice(rowCount, rides.length).forEach(function (ride, index) {
                 var html =
