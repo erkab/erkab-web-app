@@ -1,5 +1,5 @@
 var router = require('express').Router();
-const pendingRide = require('../app_server/model/ride');
+const pendingRide = require('../app_server/model/rideRequest');
 
 
 router.get('/', checkLoggedIn, function (req, res) {
