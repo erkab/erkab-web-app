@@ -15,7 +15,6 @@ $(document).ready(function () {
                     + '<td class="text-center">' + ride.date + '</td>'
                     + '<td class="text-center">' + ride.time + '</td>'
                     + '</tr>';
-                console.log(html);
                 $('#rideTable').append(html);
             });
             if (!rides.length) {
@@ -53,6 +52,8 @@ function updateRideTable() {
             });
         }
     });
+
+
 }
 
-setInterval(updateRideTable, 20 * 1000);
+setInterval(updateRideTable, 10 * 1000);
