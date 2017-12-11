@@ -12,6 +12,7 @@ The solution initially stemmed from the inadequate number of parking spaces avai
 
 <sup><b>1</b></sup> Based on fare estimates obtained from the [Uber API](https://developer.uber.com/docs/riders/references/api/v1.2/estimates-price-get).
 <hr>
+
 **Technologies used:** JavaScript, Node.js, Express.js, jQuery, MongoDB, HTML, CSS, Bootstrap, Maps API, Twilio API.
 
 ### To try out **Erkab**'s `alpha` version, click [**here**](https://erkab.herokuapp.com).
