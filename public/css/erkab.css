@@ -7499,8 +7499,6 @@ body > * {
 #map {
     /*height: calc(100vh - 235px);*/
     height: calc(100vh - 222px);
-    
-    margin-top: 52px;
     /*box-shadow: 0px 1px 1px 0px #3938535e inset;*/
     width: 100vw;
 }
