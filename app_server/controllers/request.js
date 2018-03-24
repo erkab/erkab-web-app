@@ -2,12 +2,9 @@ const matcher = require('../../lib/matcher');
 
 function receivedRequest(req, res) {
     var userType = 'Rider';
-    if (req.body.userType !== "Rider") {
+    if(req.body.userType !== "Rider") {
         userType = 'Driver';
     }
-
-    console.log(req.body);
-
     var ride = {
         userType: userType,
         area: req.body.area,
@@ -20,13 +17,13 @@ function receivedRequest(req, res) {
         genderPreference: req.body.driverPref
     };
     matcher.matchQuery(ride, function (result) {
-        console.log("Match found!");
-        if (result) {
+        if(result) {
             res.redirect('/profile');
         } else {
-            res.redirect('/dashboard');
+            res.redirect('/request');
         }
     });
+
 }
 
 module.exports = {

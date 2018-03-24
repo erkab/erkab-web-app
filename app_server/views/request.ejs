@@ -177,9 +177,10 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACM-rbXIzhMtNX4ax1u7d-m70pQNDgVa4&callback=initMap">
 </script>
 
+
 <script>
     $(document).ready(function () {
-        $.getJSON("public/ajax/locations.json", function (data) {
+        $.getJSON('public/ajax/locations.json', function (data) {
             window.locationsData = data;
             $.each(data.areas, function (index, value) {
                 $('#areaPicker').append('<option value ="' + value + '">' + value + '</option>');
@@ -188,6 +189,5 @@
         });
     });
 </script>
-
 </body>
 </html>
