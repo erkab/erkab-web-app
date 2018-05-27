@@ -1,10 +1,8 @@
 /*! © 2017 Hesham Saleh - Erkab Stylesheet.*/
 /*! erkab.min.css */
-
  @import url("font-awesome/css/font-awesome.min.css");
  @import url("micons/micons.css");
  @import url("fonts.css");
-
  html{
      font-size:10px 
 }
@@ -922,12 +920,8 @@
      margin-bottom:1rem;
      background-color:transparent 
 }
- .table th{
-     padding:.75rem;
-     vertical-align:top;
-     border-top:1px solid #e9ecef 
-}
  .table thead th{
+     padding:.75rem;
      vertical-align:bottom;
      border-bottom:2px solid #e9ecef 
 }
@@ -1015,7 +1009,6 @@
  .dropdown-menu{
      background-color:#fff 
 }
-
 /* TO DO: LANDSCAPE SUPPORT */
 /* iPhone 6 & below */
  #map {
@@ -1031,13 +1024,13 @@
  @media (min-width: 360px) {
      #map {
         /*height: calc(100vh - 225px);
-        */
+         */
     }
 }
  @media (min-width: 412px) {
      #map {
         /*height: calc(100vh - 235px);
-        */
+         */
     }
 }
  @media (min-width: 764px) {
@@ -1048,7 +1041,7 @@
  @media (min-width: 1025px) {
      #map {
         /*height: calc(100vh - 235px);
-        */
+         */
     }
 }
  .map-request {

@@ -52,8 +52,5 @@ function updateRideTable() {
             });
         }
     });
-
-
 }
-
 setInterval(updateRideTable, 10 * 1000);

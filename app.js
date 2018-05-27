@@ -8,6 +8,7 @@ app.use(compression());
 app.set('views', __dirname + '/app_server/views');
 app.set('view engine', 'ejs');
 app.set('view cache', true);
+
 app.use("/public", express.static(__dirname + '/public'));
 
 require('dotenv').config();

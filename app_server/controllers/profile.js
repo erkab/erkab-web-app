@@ -33,7 +33,6 @@ function getRideHistory(req, res) {
            }
         });
     });
-
 }
 
 module.exports = {
