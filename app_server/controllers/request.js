@@ -20,7 +20,7 @@ function receivedRequest(req, res) {
         if(result) {
             res.redirect('/profile');
         } else {
-            res.redirect('/request');
+            res.redirect('/dashboard');
         }
     });
 

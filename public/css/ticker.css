@@ -72,7 +72,6 @@
 	.ticker-container .ticker-caption {
 		height: 100%;
 		width: 155px;
-		/*background: url('/public/images/ticker-caption-bg.png');*/
 	}
 	.ticker-container .ticker-caption p {
 		text-align: left;

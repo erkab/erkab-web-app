@@ -6,43 +6,30 @@
     <!-- preloader -->
     <script src="/public/js/pace.min.js"></script>
 
-    <!--- basic page needs
-   ================================================== -->
+    <!--- basic page needs -->
     <meta charset="utf-8">
     <title>Erkab - Login</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <!-- mobile specific metas
-    ================================================== -->
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
 
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="/public/css/base.css">
+    <!-- CSS -->
     <link rel="stylesheet" href="/public/css/bootstrap.css">
-    <link rel="stylesheet" href="/public/css/main.css">
     <link rel="stylesheet" href="/public/css/erkab.css">
 
-    <!-- script
-    ================================================== -->
-    <script src="/public/js/modernizr.js"></script>
-
-    <!-- favicons
-    ================================================== -->
+    <!-- favicons -->
     <link rel="icon" type="image/png" href="/public/images/favicon-32x32.png" sizes="32x32"/>
     <link rel="icon" type="image/png" href="/public/images/favicon-16x16.png" sizes="16x16"/>
 </head>
 
 <body>
 
-<div class="container-fluid" style="padding-top: 30px">
+<div class="container-fluid" style="padding-top: 0">
     <div class="row">
         <div class="col-xs-12 text-center">
-            <h1 class="text-center uppercase main-title title-margin" style="font-size: 350%; margin-bottom: 30px"><i
+            <h1 class="text-center uppercase erkab-title-sm adjusted-margin-and-spacing"><i
                         class="fa fa-car"></i> Erkab</h1>
-            <h1 class="text-center uppercase main-title title-margin"><i class="fa fa-sign-in"></i> Login</h1>
+            <h1 class="text-center uppercase adjusted-margin-and-spacing"><i class="fa fa-sign-in"></i> Login</h1>
             <!-- LOGIN FORM -->
             <form id="login-form" action="/login" method="post">
                 <label class="uppercase">Email</label>
@@ -55,7 +42,7 @@
                 <label class="uppercase">Password</label>
                 <input type="password" class="input-margin-auto" name="password" placeholder="Password"><br>
 
-                <button id="loginBtn" type="submit" class="btn btn-edited uppercase">Login</button>
+                <button id="loginOrSignupBtn" type="submit" class="btn btn-main uppercase">Login</button>
             </form>
             <hr>
             <p>Need an account? <a href="/signup">Signup</a>.</p>
@@ -63,12 +50,6 @@
         </div>
     </div>
 </div>
-
-<footer class="footer">
-    <div class="container">
-        <span class="text-muted">© Erkab 2017. All Rights Reserved.</span>
-    </div>
-</footer>
 
 <% include templates/preloader.ejs %>
 

@@ -6,43 +6,30 @@
     <!-- preloader -->
     <script src="/public/js/pace.min.js"></script>
 
-    <!--- basic page needs
-   ================================================== -->
+    <!--- basic page needs -->
     <meta charset="utf-8">
     <title>Erkab - Sign up</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <!-- mobile specific metas
-    ================================================== -->
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
 
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="/public/css/base.css">
+    <!-- CSS -->
     <link rel="stylesheet" href="/public/css/bootstrap.css">
-    <link rel="stylesheet" href="/public/css/main.css">
     <link rel="stylesheet" href="/public/css/erkab.css">
 
-    <!-- script
-    ================================================== -->
-    <script src="/public/js/modernizr.js"></script>
-
-    <!-- favicons
-    ================================================== -->
+    <!-- favicons -->
     <link rel="icon" type="image/png" href="/public/images/favicon-32x32.png" sizes="32x32"/>
     <link rel="icon" type="image/png" href="/public/images/favicon-16x16.png" sizes="16x16"/>
 </head>
 
 <body>
 
-<div class="container-fluid" style="padding-top: 0">
+<div class="container-fluid padding-top-zero">
     <div class="row">
         <div class="col-xs-12 text-center">
-            <h1 class="text-center uppercase main-title title-margin" style="font-size: 350%; margin-bottom: 30px"><i
+            <h1 class="text-center uppercase erkab-title-sm adjusted-margin-and-spacing"><i
                         class="fa fa-car"></i> Erkab</h1>
-            <h1 class="text-center uppercase main-title title-margin"><i class="fa fa-sign-in"></i> Sign up</h1>
+            <h1 class="text-center uppercase adjusted-margin-and-spacing"><i class="fa fa-sign-in"></i> Sign up</h1>
 
             <!-- show any messages that come back with authentication -->
             <% if (message.length > 0) { %>
@@ -59,15 +46,15 @@
                 <input type="text" class="input-margin-auto" name="mobileNum" placeholder="Mobile No."><br>
                 <input type="text" class="input-margin-auto" name="collegeId" placeholder="College ID"><br>
                 <div class="btn-group" data-toggle="buttons">
-                    <label class="btn btn-edited gender-btn active">
+                    <label class="btn btn-main gender-btn active">
                         <input type="radio" name="gender" value="Male" autocomplete="off" checked><i
                                 class="fa fa-male"></i></label>
-                    <label class="btn btn-edited gender-btn">
+                    <label class="btn btn-main gender-btn">
                         <input type="radio" name="gender" value="Female" autocomplete="off"><i
                                 class="fa fa-female"></i></label>
                 </div>
                 <br><br>
-                <button id="loginBtn" type="submit" class="btn btn-edited uppercase">Sign Up</button>
+                <button id="loginOrSignupBtn" type="submit" class="btn btn-main uppercase">Sign Up</button>
             </form>
             <hr>
             <p>Already have an account? <a href="/login">Login</a>.</p>

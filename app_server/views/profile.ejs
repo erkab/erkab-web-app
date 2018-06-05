@@ -1,43 +1,27 @@
-<!DOCTYPE html>
-<!--[if lt IE 9 ]>
-<html class="no-js oldie" lang="en"> <![endif]-->
-<!--[if IE 9 ]>
-<html class="no-js oldie ie9" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<html class="no-js" lang="en">
-<!--<![endif]-->
-
+<!-- views/profile.ejs -->
+<!doctype html>
+<html>
 <head>
 
     <!-- preloader -->
     <link rel="stylesheet" href="/public/css/themes/white/pace-theme-flash.css">
     <script src="/public/js/pace.min.js"></script>
 
-    <!--- basic page needs
-   ================================================== -->
+    <!--- basic page needs -->
     <meta charset="utf-8">
     <title><%= user.firstName %>'s Account - Erkab</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <!-- mobile specific metas
-   ================================================== -->
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
 
-    <!-- CSS
-   ================================================== -->
-    <link rel="stylesheet" href="/public/css/base.css">
+    <!-- CSS -->
     <link rel="stylesheet" href="/public/css/bootstrap.css">
-    <link rel="stylesheet" href="/public/css/main.css">
     <link rel="stylesheet" href="/public/css/erkab.css">
 
-    <!-- script
-   ================================================== -->
+    <!-- script -->
     <script src="/public/js/modernizr.js"></script>
 
-    <!-- favicons
-	================================================== -->
+    <!-- favicons -->
     <link rel="icon" type="image/png" href="/public/images/favicon-32x32.png" sizes="32x32"/>
     <link rel="icon" type="image/png" href="/public/images/favicon-16x16.png" sizes="16x16"/>
 
@@ -50,12 +34,12 @@
     <div class="modal-dialog modal-md">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title main-title uppercase">Trip Summary - 02/12/2017</h4>
+                <h4 class="modal-title letter-spacing text-center uppercase">Trip Summary - 02/12/2017</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-                <p><strong>Fare:</strong> 16EGP <br> <strong>Distance:</strong> 13KM <br> <strong>Pickup Point:</strong>
-                    McDonald's Stanley <br> <strong>Driver:</strong> Ahmed K. <br> <strong>Car Model:</strong> Toyota
+                <p><strong>Fare:</strong> 15EGP <br> <strong>Distance:</strong> 10KM <br> <strong>Pickup Point:</strong>
+                    Starbucks Downtown <br> <strong>Driver:</strong> Clark K. <br> <strong>Car Model:</strong> Toyota
                     Corolla <br> <strong>Color:</strong> Silver <br> <strong>License No:</strong> 321 SLA</p>
             </div>
             <div class="modal-footer">
@@ -67,34 +51,34 @@
 
 <% include templates/header.ejs %>
 
-<!-- START OF CHANGEABLE VIEW -->
-<div id="changeableView" class="container-fluid">
+<div class="container-fluid">
 
-    <h1 class="text-center uppercase main-title title-margin"><%= user.firstName %>'s Account</h1>
+    <h1 class="letter-spacing text-center uppercase"><%= user.firstName %>'s Account</h1>
 
     <div class="row">
         <div class="col-12">
-            <h3 class="main-title uppercase text-center"><i class="fa fa-line-chart"></i> Stats</h3>
+            <h3 class="letter-spacing text-center uppercase"><i class="fa fa-line-chart"></i> Stats</h3>
             <hr class="edit-profile-hr">
         </div>
 
         <div class="col-md-4 text-center col-4 col-sm-4 col-lg-4 col-xl-4 align-self-stretch">
             <h1 id="stats" class="text-center display-3 counter" data-count="0">0</h1>
             <h4 class="text-center text-erkab"><i class="fa fa-usd"></i><span
-                        class="badge spaced-letters uppercase">Saved</span></h4>
+                        class="badge letter-spacing-sm uppercase">Saved</span></h4>
         </div>
         <!--data-count="<%= user.rides == null ? 0 : user.rides.length %>"-->
         <div class="col-md-4 text-center col-4 col-sm-4 col-lg-4 col-xl-4 align-self-stretch">
-            <h1 id="rideCounter" class="text-center display-3 counter" data-count="<%= user.rides == null ? 0 : user.rides.length %>"
+            <h1 id="rideCounter" class="text-center display-3 counter"
+                data-count="<%= user.rides == null ? 0 : user.rides.length %>"
             >0</h1>
             <h4 class="text-center text-erkab"><i class="fa fa-car"></i><span
-                        class="badge spaced-letters uppercase">Rides</span></h4>
+                        class="badge letter-spacing-sm uppercase">Rides</span></h4>
         </div>
 
         <div class="col-md-4 text-center col-sm-4 col-4 align-self-stretch col-lg-4 col-xl-4">
             <h1 id="stats" class="text-center display-3 counter" data-count="0">0</h1>
             <h4 class="text-center text-erkab"><i class="fa fa-exchange"></i><span
-                        class="badge spaced-letters uppercase">Km</span>
+                        class="badge letter-spacing-sm uppercase">Km</span>
             </h4>
         </div>
     </div>
@@ -106,7 +90,7 @@
         <div class="col-xs-12 col-md-8 col-md-push-4">
 
             <div class="sticky-div">
-                <h3 class="main-title uppercase text-center"><i class="fa fa-suitcase"></i> Trips</h3>
+                <h3 class="letter-spacing uppercase text-center"><i class="fa fa-suitcase"></i> Trips</h3>
                 <hr class="edit-profile-hr">
             </div>
 
@@ -128,7 +112,8 @@
         <!-- edit form column -->
         <div class="col-xs-12 col-md-4 col-md-pull-8 text-center edit-profile-col">
             <div class="sticky-div edit-profile-sticky-div">
-                <h3 id="profileH3" class="main-title uppercase text-white"><i class="fa fa-user-circle-o"></i> Profile
+                <h3 id="profileH3" class="letter-spacing uppercase text-white"><i
+                            class="fa fa-user-circle-o"></i>Profile
                 </h3>
                 <hr class="edit-profile-hr">
             </div>
@@ -156,7 +141,6 @@
                            value="<%= user.mobileNum %>">
                     <br>
 
-                    <!-- Email uneditable -->
                     <label class="text-white uppercase">Email</label><br>
                     <input name="email" type="email" class="input-margin-auto profileInput" value="<%= user.email %>">
                     <br>
@@ -204,8 +188,6 @@
                     <br>
                     <br>
                     <br>
-                    <br>
-                    <br>
                 </div>
                 <br>
                 <br>
@@ -216,18 +198,15 @@
     </div>
 </div>
 
-<!-- END OF CHANGEABLE VIEW -->
-
 <% include templates/preloader.ejs %>
 
-<!-- Java Script
-================================================== -->
+<!-- Java Script -->
 <script src="/public/js/jquery-2.1.3.min.js"></script>
 <script src="/public/js/main.js"></script>
 <script src="/public/js/bootstrap.min.js"></script>
 <script src="/public/js/counter.js"></script>
 <script src="/public/js/profile/editProfile.js"></script>
-<script  src="/public/js/profile/rideDataDisplay.js"></script>
+<script src="/public/js/profile/rideDataDisplay.js"></script>
 <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
 <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/additional-methods.min.js"></script>
 <script src="/public/js/profile/validation.js"></script>
