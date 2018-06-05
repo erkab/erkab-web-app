@@ -1,1 +1,1 @@
-public/css/* linguist-vendored
+*.css linguist-language=JavaScript
